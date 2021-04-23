@@ -1,4 +1,9 @@
-export const getUser = (req: any, res: any) => {
-  const id = req.params.id;
-  res.send({ express: `Requested data for user ID: ${id}` });
+export const getArt = (req: any, res: any) => {
+  const id = req.params.searchTerm;
+  res.send([
+    {
+      imageUrl: "http://www.bildarchivaustria.at/Preview/10233488.jpg",
+      artistName: "Ella marke",
+    },
+  ]);
 };

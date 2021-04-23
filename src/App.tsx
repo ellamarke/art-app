@@ -9,9 +9,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   // Fetching my API on load
   useEffect(() => {
-    fetch(`/api/users/ella`)
+    fetch(`/api/art/search`)
       .then((res) => res.json())
       .then((result) => {
+        console.log(result.length);
         console.log(result);
       });
   }, []);
