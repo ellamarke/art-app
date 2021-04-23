@@ -4,6 +4,7 @@ const apiKey = process.env.EUROPEANA_API_KEY;
 type EuropeArtItem = {
   dcCreator: string[];
   edmIsShownBy: string[];
+  dcTitleLangAware: Record<string, string[]>;
 };
 type EuropeSearchResponse = {
   apikey: string;
@@ -17,6 +18,7 @@ type EuropeSearchResponse = {
 type Artwork = {
   imageURL: string;
   artistName: string;
+  artworkName: string;
 };
 
 type ArtworkSearchResults = {
@@ -34,14 +36,37 @@ export const getArt = async (req: any, res: any) => {
 
   const results = (await apiResponse.json()) as EuropeSearchResponse;
 
-  const artWorks: ArtworkSearchResults = {
+  const artworks: ArtworkSearchResults = {
     results: results.items.map((item) => ({
-      imageURL:
-        (item?.edmIsShownBy && item?.edmIsShownBy[0]) || "Image unavailable",
-      artistName: (item?.dcCreator && item?.dcCreator[0]) || "Artist unknown",
+      imageURL: extractUrl(item),
+      artistName: extractArtists(item),
+      artworkName: extractTitle(item),
     })),
     resultCount: results.totalResults,
   };
 
-  res.send(JSON.stringify(artWorks));
+  res.send(JSON.stringify(artworks));
 };
+
+function extractUrl(item: EuropeArtItem): string {
+  return (item?.edmIsShownBy && item?.edmIsShownBy[0]) || "Image unavailable";
+}
+
+function extractArtists(item: EuropeArtItem): string {
+  return (item?.dcCreator && item?.dcCreator[0]) || "Artist unknown";
+}
+
+function extractTitle(item: EuropeArtItem): string {
+  return (
+    (item?.dcTitleLangAware?.en && item?.dcTitleLangAware.en[0]) ||
+    firstLanguage(item?.dcTitleLangAware)
+  );
+}
+
+function firstLanguage(titles: Record<string, string[]>): string {
+  if (Object.keys(titles)) {
+    const firstLanguage = Object.keys(titles)[0];
+    return (titles[firstLanguage] && titles[firstLanguage][0]) || "No Title";
+  }
+  return "No title";
+}
