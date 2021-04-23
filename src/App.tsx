@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Nav from "./shared/Nav";
 import HomePage from "./home/HomePage";
@@ -7,15 +7,6 @@ import Explore from "./explore/Explore";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  // Fetching my API on load
-  useEffect(() => {
-    fetch(`/api/art/search`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result.length);
-        console.log(result);
-      });
-  }, []);
   return (
     <Router>
       <Nav />
