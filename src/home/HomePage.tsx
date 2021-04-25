@@ -1,41 +1,17 @@
-import { useEffect, useState } from "react";
-import ArtRenderer from "../shared/ArtRenderer";
-
-type Artwork = {
-  imageURL: string;
-  artistName: string;
-  artworkName: string;
-};
-
-type ArtworkSearchResults = {
-  results: Artwork[];
-  resultCount: number;
-};
+import ArtRendererContainer from "../shared/ArtRendererContainer";
+import ArtworkSpotlight from "./ArtworkSpotlight";
 
 function HomePage() {
-  const [artworks, setArtworks] = useState<ArtworkSearchResults>({
-    results: [],
-    resultCount: 0,
-  });
-  useEffect(() => {
-    fetch(`/api/art/search`)
-      .then((res) => res.json())
-      .then((result) => {
-        setArtworks(result);
-        console.log(result);
-      });
-  }, []);
-
   return (
     <div>
       <h1>Homepage</h1>
-      {artworks.results.map((artwork) => (
-        <ArtRenderer
-          src={artwork.imageURL}
-          artworkName={artwork.artworkName}
-          artistName={artwork.artistName}
-        />
-      ))}
+      <ArtworkSpotlight
+        imgSRC="img/picasso/femme-au-beret.jpg"
+        artworkName="Femme au Beret Orange"
+        artistName="Pablo Picasso"
+        created={1937}
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      />
     </div>
   );
 }
