@@ -1,5 +1,6 @@
 import { Artwork, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
+import DeleteButton from "../shared/buttons/DeleteButton";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -26,7 +27,10 @@ function Profile({ artworks }: Props) {
       <h1>Profile</h1>
       <ul>
         {artworks.map((artwork) => (
-          <li>{artwork.gallery}</li>
+          <div>
+            <li>{artwork.gallery}</li>
+            <DeleteButton />
+          </div>
         ))}
       </ul>
     </div>

@@ -1,5 +1,5 @@
 import reducer from "./reducer";
-import { saveArtwork } from "./actions";
+import { saveArtwork, removeArtwork } from "./actions";
 
 describe("reducer", () => {
   describe("SAVE_ARTWORK", () => {
@@ -12,6 +12,45 @@ describe("reducer", () => {
         id: "3",
         gallery: "Spanish art",
       });
+    });
+
+    it("saving an artwork saves adds to existing artwork store", () => {
+      const state = reducer(
+        {
+          savedArtworks: [
+            {
+              id: "1",
+              gallery: "French art",
+            },
+          ],
+        },
+        saveArtwork("3", "Spanish art")
+      );
+
+      expect(state.savedArtworks).toHaveLength(2);
+
+      expect(state.savedArtworks).toContainEqual({
+        id: "3",
+        gallery: "Spanish art",
+      });
+    });
+  });
+
+  describe("REMOVE_ARTWORK", () => {
+    it("pressing delete removes an artwork from the store", () => {
+      const state = reducer(
+        {
+          savedArtworks: [
+            {
+              id: "1",
+              gallery: "French art",
+            },
+          ],
+        },
+        removeArtwork("1", "French art")
+      );
+
+      expect(state.savedArtworks).toHaveLength(0);
     });
   });
 });

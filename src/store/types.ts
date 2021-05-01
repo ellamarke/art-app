@@ -9,14 +9,20 @@ export interface State {
 
 export enum ActionTypes {
   SAVE_ARTWORK = "SAVE_ARTWORK",
+  REMOVE_ARTWORK = "REMOVE_ARTWORK",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
-/* just defining the types */
-interface SaveArtworkAction {
+export interface SaveArtworkAction {
   type: typeof ActionTypes.SAVE_ARTWORK;
   id: string;
   gallery: string;
 }
 
-export type Action = SaveArtworkAction;
+export interface RemoveArtworkAction {
+  type: typeof ActionTypes.REMOVE_ARTWORK;
+  id: string;
+  gallery: string;
+}
+
+export type Action = SaveArtworkAction | RemoveArtworkAction;
