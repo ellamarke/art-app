@@ -1,15 +1,7 @@
 import React from "react";
 import SaveButton from "../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
-
-type ArtworkSpotlight = {
-  imgSRC: string;
-  artworkName: string;
-  artistName?: string;
-  created?: number;
-  description?: string;
-  timeline?: Timeline;
-};
+import { ArtworkTimelineType, picassoTimeline } from "../reference/AllArtworks";
 
 type Timeline = {
   dates: number[];
@@ -18,22 +10,22 @@ type Timeline = {
 };
 
 function ArtworkSpotlight({
-  imgSRC,
+  imgSrc,
   artistName,
   artworkName,
-  created,
+  date,
   description,
-  timeline,
-}: ArtworkSpotlight) {
+  id,
+}: ArtworkTimelineType) {
   return (
     <div className="artwork-spotlight">
       <h2>Artwork Spotlight</h2>
-      <img src={imgSRC} />
-      <SaveButton />
+      <img src={imgSrc} />
+      <SaveButton artworkID={id} />
       <div className="artworkHeading">
         <h3>{artworkName}</h3>
         <p>
-          {artistName}, {created}
+          {artistName}, {date}
         </p>
       </div>
       <p>{description}</p>

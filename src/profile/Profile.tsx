@@ -1,6 +1,7 @@
 import { Artwork, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
+import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -26,12 +27,22 @@ function Profile({ artworks }: Props) {
     <div>
       <h1>Profile</h1>
       <ul>
-        {artworks.map((artwork) => (
-          <div>
-            <li>{artwork.gallery}</li>
-            <DeleteButton />
-          </div>
-        ))}
+        {artworks.map((savedArtwork) => {
+          const artwork = allArtworks.find((artwork) => {
+            return artwork.id === savedArtwork.id;
+          }) as ArtworkTimelineType;
+          return (
+            <div>
+              <li>
+                {artwork.artistName}, {artwork.artworkName}
+              </li>
+              <li>
+                <img src={artwork.imgSrc} />
+              </li>
+              <DeleteButton />
+            </div>
+          );
+        })}
       </ul>
     </div>
   );

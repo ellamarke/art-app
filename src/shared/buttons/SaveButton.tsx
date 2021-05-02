@@ -18,17 +18,20 @@ const connector = connect(
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-type Props = PropsFromRedux;
+type Props = PropsFromRedux & {
+  artworkID: string;
+};
 
 function SaveButton({
   /* we pass in the things we want dispatched by redux here */
   saveArtwork,
+  artworkID,
 }: Props) {
   const id = "1";
   const gallery = "french art";
   return (
     <div className="save-button">
-      <button onClick={(event) => saveArtwork(id, gallery)}>save</button>
+      <button onClick={(event) => saveArtwork(artworkID, gallery)}>save</button>
     </div>
   );
 }

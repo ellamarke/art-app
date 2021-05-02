@@ -1,36 +1,5 @@
-type artworkTimeline = {
-  artworkName: string;
-  date: number;
-  imgSrc: string;
-};
-
-const picassoTimeline: artworkTimeline[] = [
-  {
-    artworkName: "Garcon a la pipe",
-    date: 1905,
-    imgSrc: "img/picasso/garcon.jpg",
-  },
-  {
-    artworkName: "Les Demoiselles d'Avignon",
-    date: 1907,
-    imgSrc: "img/picasso/les-demoiselles.jpg",
-  },
-  {
-    artworkName: "Femme au béret orange",
-    date: 1937,
-    imgSrc: "img/picasso/femme-au-beret.jpg",
-  },
-  {
-    artworkName: "Guernica",
-    date: 1937,
-    imgSrc: "img/picasso/guernica.jpeg",
-  },
-  {
-    artworkName: "Les Femmes d'Alger",
-    date: 1955,
-    imgSrc: "img/picasso/les-femmes.jpeg",
-  },
-];
+import { picassoTimeline } from "../reference/AllArtworks";
+import SaveButton from "../shared/buttons/SaveButton";
 
 function ArtworkTimeline() {
   return (
@@ -42,6 +11,7 @@ function ArtworkTimeline() {
             <p className="artwork-date">{artwork.date}</p>
             <img src={artwork.imgSrc} />
             <p className="artwork-name">{artwork.artworkName}</p>
+            <SaveButton artworkID={artwork.id} />
           </div>
         );
       })}

@@ -1,19 +1,30 @@
 import ArtRendererContainer from "../shared/ArtRendererContainer";
 import ArtworkSpotlight from "./ArtworkSpotlight";
+import { picassoTimeline } from "../reference/AllArtworks";
 
 function HomePage() {
-  return (
-    <div>
-      <h1>Homepage</h1>
-      <ArtworkSpotlight
-        imgSRC="img/picasso/femme-au-beret.jpg"
-        artworkName="Femme au Beret Orange"
-        artistName="Pablo Picasso"
-        created={1937}
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      />
-    </div>
-  );
+  const picassoSpotlight = picassoTimeline.find((artwork) => {
+    return artwork.spotlightPicture;
+  });
+
+  if (picassoSpotlight != undefined) {
+    return (
+      <div>
+        <h1>Homepage</h1>
+        <ArtworkSpotlight
+          imgSrc={picassoSpotlight.imgSrc}
+          artworkName={picassoSpotlight.artworkName}
+          artistName={picassoSpotlight.artistName}
+          date={picassoSpotlight.date}
+          description={picassoSpotlight?.description}
+          id={picassoSpotlight.id}
+          spotlightPicture={picassoSpotlight.spotlightPicture}
+        />
+      </div>
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
 export default HomePage;
