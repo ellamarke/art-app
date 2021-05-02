@@ -39,7 +39,7 @@ function Profile({ artworks }: Props) {
               <li>
                 <img src={artwork.imgSrc} />
               </li>
-              <DeleteButton />
+              <DeleteButton artworkID={artwork.id} />
             </div>
           );
         })}

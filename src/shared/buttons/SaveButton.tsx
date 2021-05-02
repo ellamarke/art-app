@@ -27,7 +27,6 @@ function SaveButton({
   saveArtwork,
   artworkID,
 }: Props) {
-  const id = "1";
   const gallery = "french art";
   return (
     <div className="save-button">

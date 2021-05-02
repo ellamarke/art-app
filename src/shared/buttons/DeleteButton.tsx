@@ -18,17 +18,21 @@ const connector = connect(
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-type Props = PropsFromRedux;
+type Props = PropsFromRedux & {
+  artworkID: string;
+};
 
 function DeleteButton({
   /* we pass in the things we want dispatched by redux here */
   removeArtwork,
+  artworkID,
 }: Props) {
-  const id = "1";
   const gallery = "french art";
   return (
     <div className="delete-button">
-      <button onClick={(event) => removeArtwork(id, gallery)}>delete</button>
+      <button onClick={(event) => removeArtwork(artworkID, gallery)}>
+        delete
+      </button>
     </div>
   );
 }
