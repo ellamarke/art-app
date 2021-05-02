@@ -1,4 +1,5 @@
 import ArtworkSpotlight from "../home/ArtworkSpotlight";
+import { v4 as uuidv4 } from "uuid";
 import {
   Action,
   State,
@@ -10,6 +11,20 @@ import {
 
 const initialState: State = {
   savedArtworks: [],
+  premadeGalleries: [
+    {
+      name: "French Art",
+      id: uuidv4(),
+    },
+    {
+      name: "Mexican Art",
+      id: uuidv4(),
+    },
+    {
+      name: "Cool Art",
+      id: uuidv4(),
+    },
+  ],
 };
 
 const state = (state = initialState, action: Action) => {

@@ -9,7 +9,11 @@ import { Provider } from "react-redux";
 import state from "./store/reducer";
 import { createStore } from "redux";
 
-const store = createStore(state);
+const store = createStore(
+  state,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   return (

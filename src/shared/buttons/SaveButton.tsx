@@ -39,7 +39,11 @@ function SaveButton({
         </button> */}
         <button onClick={(event) => setIsOpen(true)}>save</button>
       </div>
-      <GalleryDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+      <GalleryDialog
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        artworkID={artworkID}
+      />
     </div>
   );
 }

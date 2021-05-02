@@ -5,6 +5,12 @@ export interface Artwork {
 
 export interface State {
   savedArtworks: Artwork[];
+  premadeGalleries: Gallery[];
+}
+
+export interface Gallery {
+  name: string;
+  id: string;
 }
 
 export enum ActionTypes {
