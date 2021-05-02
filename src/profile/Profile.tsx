@@ -1,10 +1,11 @@
-import { Artwork, State } from "../store/types";
+import { Artwork, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
 import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
+  premadeGalleries: state.premadeGalleries,
 });
 
 const mapDispatchToProps = {
@@ -20,32 +21,61 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux & {
   artworks: Artwork[];
+  premadeGalleries: Gallery[];
 };
 
-function Profile({ artworks }: Props) {
+type GalleryProps = {
+  artworks: Artwork[];
+};
+
+function Profile({ artworks, premadeGalleries }: Props) {
   return (
     <div>
       <h1>Profile</h1>
-      <ul>
+      {premadeGalleries.map((gallery) => {
+        return (
+          <div>
+            <h2>{gallery.name}</h2>
+            <ArtworksInGallery
+              artworks={getArtworksInGallery(artworks, gallery)}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function getArtworksInGallery(
+  allArtworks: Artwork[],
+  gallery: Gallery
+): Artwork[] {
+  return allArtworks.filter((artwork) => gallery.id === artwork.gallery);
+}
+
+function ArtworksInGallery({ artworks }: GalleryProps) {
+  {
+    return (
+      <div>
         {artworks.map((savedArtwork) => {
           const artwork = allArtworks.find((artwork) => {
             return artwork.id === savedArtwork.id;
           }) as ArtworkTimelineType;
           return (
             <div>
-              <li>
+              <p>
                 {artwork.artistName}, {artwork.artworkName}
-              </li>
-              <li>
+              </p>
+              <p>
                 <img src={artwork.imgSrc} />
-              </li>
+              </p>
               <DeleteButton artworkID={artwork.id} />
             </div>
           );
         })}
-      </ul>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default connector(Profile);
