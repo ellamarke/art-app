@@ -1,7 +1,7 @@
 import React from "react";
 import SaveButton from "../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
-import { ArtworkTimelineType, picassoTimeline } from "../reference/AllArtworks";
+import { ArtworkTimelineType } from "../reference/AllArtworks";
 
 type Timeline = {
   dates: number[];

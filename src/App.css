@@ -5,3 +5,16 @@ img {
 .artwork-name {
   font-weight: 500;
 }
+
+/* Dialog box */
+
+.dialog {
+  width: 500px;
+  background-color: aqua;
+  padding: 20px;
+  z-index: 99;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

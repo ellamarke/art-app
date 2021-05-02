@@ -1,6 +1,8 @@
 import { State } from "../../store/types";
 import { saveArtwork } from "../../store/actions";
 import { connect, ConnectedProps } from "react-redux";
+import GalleryDialog from "../dialogs/GalleryDialog";
+import { useState } from "react";
 
 const mapStateToProps = (state: State) => ({
   //
@@ -28,9 +30,16 @@ function SaveButton({
   artworkID,
 }: Props) {
   const gallery = "french art";
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="save-button">
-      <button onClick={(event) => saveArtwork(artworkID, gallery)}>save</button>
+    <div>
+      <div className="save-button">
+        {/*         <button onClick={(event) => saveArtwork(artworkID, gallery)}>
+          save
+        </button> */}
+        <button onClick={(event) => setIsOpen(true)}>save</button>
+      </div>
+      <GalleryDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }
