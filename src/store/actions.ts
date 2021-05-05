@@ -11,3 +11,8 @@ export const removeArtwork = (id: string, gallery: string): Action => ({
   id,
   gallery,
 });
+
+export const createGallery = (galleryName: string): Action => ({
+  type: ActionTypes.CREATE_GALLERY,
+  galleryName,
+});

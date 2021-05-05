@@ -1,4 +1,3 @@
-import ArtworkSpotlight from "../home/ArtworkSpotlight";
 import { v4 as uuidv4 } from "uuid";
 import {
   Action,
@@ -7,11 +6,12 @@ import {
   SaveArtworkAction,
   Artwork,
   RemoveArtworkAction,
+  CreateGalleryAction,
 } from "./types";
 
 const initialState: State = {
   savedArtworks: [],
-  premadeGalleries: [
+  savedGalleries: [
     {
       name: "French Art",
       id: uuidv4(),
@@ -34,6 +34,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.REMOVE_ARTWORK:
       return removeArtwork(state, action);
+
+    case ActionTypes.CREATE_GALLERY:
+      return createGallery(state, action);
 
     default:
       return state;
@@ -63,6 +66,20 @@ const removeArtwork = (state: State, action: RemoveArtworkAction) => {
   return {
     ...state,
     savedArtworks: newSavedArtworks,
+  };
+};
+
+const createGallery = (state: State, action: CreateGalleryAction) => {
+  const savedGalleries = state.savedGalleries;
+  const newGallery = {
+    name: action.galleryName,
+    id: uuidv4(),
+  };
+  const newSavedGalleries = [...savedGalleries, newGallery];
+
+  return {
+    ...state,
+    savedGalleries: newSavedGalleries,
   };
 };
 

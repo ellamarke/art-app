@@ -5,7 +5,7 @@ import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
-  premadeGalleries: state.premadeGalleries,
+  savedGalleries: state.savedGalleries,
 });
 
 const mapDispatchToProps = {
@@ -21,18 +21,18 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux & {
   artworks: Artwork[];
-  premadeGalleries: Gallery[];
+  savedGalleries: Gallery[];
 };
 
 type GalleryProps = {
   artworks: Artwork[];
 };
 
-function Profile({ artworks, premadeGalleries }: Props) {
+function Profile({ artworks, savedGalleries }: Props) {
   return (
     <div>
       <h1>Profile</h1>
-      {premadeGalleries.map((gallery) => {
+      {savedGalleries.map((gallery) => {
         return (
           <div>
             <h2>{gallery.name}</h2>

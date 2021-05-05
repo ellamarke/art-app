@@ -5,29 +5,30 @@ import { saveArtwork } from "../../store/actions";
 type Props = PropsFromRedux & {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
-  premadeGalleries: Gallery[];
+  newGalleryDialogIsOpen: boolean;
+  setNewGalleryDialogIsOpen: (open: boolean) => void;
+  savedGalleries: Gallery[];
   artworkID: string;
 };
 
 const mapStateToProps = (state: State) => ({
-  premadeGalleries: state.premadeGalleries,
+  savedGalleries: state.savedGalleries,
 });
 
 const mapDispatchToProps = {
   saveArtwork: saveArtwork,
 };
 
-const connector = connect(
-  mapStateToProps,
-  mapDispatchToProps
-); /* this connects the component to the store */
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 function GalleryDialog({
   isOpen,
   setIsOpen,
-  premadeGalleries,
+  newGalleryDialogIsOpen,
+  setNewGalleryDialogIsOpen,
+  savedGalleries,
   artworkID,
   saveArtwork,
 }: Props) {
@@ -37,11 +38,16 @@ function GalleryDialog({
     setIsOpen(false);
   };
 
+  const newGallery = () => {
+    setIsOpen(false);
+    setNewGalleryDialogIsOpen(true);
+  };
+
   let galleryDialog: JSX.Element | null = (
     <div className="dialog">
       <h2>Save to gallery</h2>
       <ul>
-        {premadeGalleries.map((gallery) => {
+        {savedGalleries.map((gallery) => {
           return (
             <li onClick={(event) => onClick(artworkID, gallery.id)}>
               {gallery.name}
@@ -49,6 +55,7 @@ function GalleryDialog({
           );
         })}
       </ul>
+      <button onClick={newGallery}>Create new gallery</button>
       <button onClick={(event) => setIsOpen(false)}>Close</button>
     </div>
   );

@@ -1,8 +1,9 @@
 import { State } from "../../store/types";
-import { saveArtwork } from "../../store/actions";
+import { createGallery, saveArtwork } from "../../store/actions";
 import { connect, ConnectedProps } from "react-redux";
 import GalleryDialog from "../dialogs/GalleryDialog";
 import { useState } from "react";
+import CreateGalleryDialog from "../dialogs/CreateGalleryDialog";
 
 const mapStateToProps = (state: State) => ({
   //
@@ -29,19 +30,23 @@ function SaveButton({
   saveArtwork,
   artworkID,
 }: Props) {
-  const gallery = "french art";
   const [isOpen, setIsOpen] = useState(false);
+  const [newGalleryDialogIsOpen, setNewGalleryDialogIsOpen] = useState(false);
   return (
     <div>
       <div className="save-button">
-        {/*         <button onClick={(event) => saveArtwork(artworkID, gallery)}>
-          save
-        </button> */}
         <button onClick={(event) => setIsOpen(true)}>save</button>
       </div>
       <GalleryDialog
         isOpen={isOpen}
         setIsOpen={setIsOpen}
+        artworkID={artworkID}
+        newGalleryDialogIsOpen={newGalleryDialogIsOpen}
+        setNewGalleryDialogIsOpen={setNewGalleryDialogIsOpen}
+      />
+      <CreateGalleryDialog // why do we pass all this in? what does it mean?
+        newGalleryDialogIsOpen={newGalleryDialogIsOpen}
+        setNewGalleryDialogIsOpen={setNewGalleryDialogIsOpen}
         artworkID={artworkID}
       />
     </div>
