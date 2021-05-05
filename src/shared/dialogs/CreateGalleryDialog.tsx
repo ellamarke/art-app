@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
+import { TypePredicateKind } from "typescript";
 import { createGallery, saveArtwork } from "../../store/actions";
 import { Gallery, State } from "../../store/types";
 
@@ -10,7 +11,7 @@ type Props = PropsFromRedux & {
 };
 
 const mapStateToProps = (state: State) => ({
-  //
+  savedGalleries: state.savedGalleries,
 });
 
 const mapDispatchToProps = {
@@ -28,17 +29,35 @@ function CreateGalleryDialog({
   artworkID,
   saveArtwork,
   createGallery,
+  savedGalleries,
 }: Props) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [newGallery, setNewGallery] = useState(false);
 
   const changeSearchTerm = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
+  useEffect(() => {
+    if (newGallery) {
+      const newGallery = savedGalleries.find(
+        (gallery) => searchTerm === gallery.name
+      );
+
+      if (typeof newGallery !== "object") {
+        throw TypeError("The gallery does not exist!");
+      }
+      saveArtwork(artworkID, newGallery.id);
+      setNewGalleryDialogIsOpen(false);
+    }
+  }, [savedGalleries]);
+
+  // We've dispatched something to change the store and the thing we want to do just afterwards depends on that store change
+  // That's why we need an if statement (triggered by useState) to determine if a new gallery has been created yet
+
   const handleCreateGallery = (searchTerm: string) => {
     createGallery(searchTerm);
-    // saveArtwork(newGallery?)
-    setNewGalleryDialogIsOpen(false);
+    setNewGallery(true);
   };
 
   let newGalleryDialog: JSX.Element | null = (
