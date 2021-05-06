@@ -18,6 +18,7 @@ export enum ActionTypes {
   REMOVE_ARTWORK = "REMOVE_ARTWORK",
   CREATE_GALLERY = "CREATE_GALLERY",
   REMOVE_GALLERY = "REMOVE_GALLERY",
+  CHANGE_GALLERY_NAME = "CHANGE_GALLERY_NAME",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
@@ -42,8 +43,15 @@ export interface RemoveGalleryAction {
   galleryName: string;
 }
 
+export interface ChangeGalleryNameAction {
+  type: typeof ActionTypes.CHANGE_GALLERY_NAME;
+  galleryName: string;
+  galleryId: string;
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
   | CreateGalleryAction
-  | RemoveGalleryAction;
+  | RemoveGalleryAction
+  | ChangeGalleryNameAction;

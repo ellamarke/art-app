@@ -44,7 +44,7 @@ function SaveButton({
         newGalleryDialogIsOpen={newGalleryDialogIsOpen}
         setNewGalleryDialogIsOpen={setNewGalleryDialogIsOpen}
       />
-      <CreateGalleryDialog // why do we pass all this in? what does it mean?
+      <CreateGalleryDialog
         newGalleryDialogIsOpen={newGalleryDialogIsOpen}
         setNewGalleryDialogIsOpen={setNewGalleryDialogIsOpen}
         artworkID={artworkID}

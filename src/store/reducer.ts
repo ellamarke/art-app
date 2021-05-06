@@ -8,6 +8,7 @@ import {
   RemoveArtworkAction,
   CreateGalleryAction,
   RemoveGalleryAction,
+  ChangeGalleryNameAction,
 } from "./types";
 
 const initialState: State = {
@@ -29,12 +30,15 @@ const state = (state = initialState, action: Action) => {
     case ActionTypes.REMOVE_GALLERY:
       return removeGallery(state, action);
 
+    case ActionTypes.CHANGE_GALLERY_NAME:
+      return changeGalleryName(state, action);
+
     default:
       return state;
   }
 };
 
-const saveArtwork = (state: State, action: SaveArtworkAction) => {
+const saveArtwork = (state: State, action: SaveArtworkAction): State => {
   return {
     ...state,
     savedArtworks: addArtwork(state.savedArtworks, {
@@ -49,7 +53,7 @@ const addArtwork = (artworks: Artwork[], artwork: Artwork) => [
   artwork,
 ];
 
-const removeArtwork = (state: State, action: RemoveArtworkAction) => {
+const removeArtwork = (state: State, action: RemoveArtworkAction): State => {
   const savedArtworks = state.savedArtworks;
   const newSavedArtworks = savedArtworks.filter(
     (artwork) => artwork.id !== action.id
@@ -60,7 +64,7 @@ const removeArtwork = (state: State, action: RemoveArtworkAction) => {
   };
 };
 
-const createGallery = (state: State, action: CreateGalleryAction) => {
+const createGallery = (state: State, action: CreateGalleryAction): State => {
   const savedGalleries = state.savedGalleries;
   const newGallery = {
     name: action.galleryName,
@@ -74,11 +78,33 @@ const createGallery = (state: State, action: CreateGalleryAction) => {
   };
 };
 
-const removeGallery = (state: State, action: RemoveGalleryAction) => {
+const removeGallery = (state: State, action: RemoveGalleryAction): State => {
   const savedGalleries = state.savedGalleries;
   const newSavedGalleries = savedGalleries.filter(
     (gallery) => gallery.name !== action.galleryName
   );
+  return {
+    ...state,
+    savedGalleries: newSavedGalleries,
+  };
+};
+
+const changeGalleryName = (
+  state: State,
+  action: ChangeGalleryNameAction
+): State => {
+  const savedGalleries = state.savedGalleries;
+  const newSavedGalleries = savedGalleries.map((gallery) => {
+    if (gallery.id === action.galleryId) {
+      return {
+        ...gallery,
+        name: action.galleryName,
+      };
+    } else {
+      return gallery;
+    }
+  });
+
   return {
     ...state,
     savedGalleries: newSavedGalleries,

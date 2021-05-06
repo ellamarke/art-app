@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SaveButton from "../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
 import { ArtworkTimelineType } from "../reference/AllArtworks";
@@ -11,6 +11,15 @@ function ArtworkSpotlight({
   description,
   id,
 }: ArtworkTimelineType) {
+  const [seeMore, setSeeMore] = useState(false);
+
+  const handleSeeMore = () => {
+    if (seeMore === false) {
+      setSeeMore(true);
+    } else {
+      setSeeMore(false);
+    }
+  };
   return (
     <div className="artwork-spotlight">
       <h2>Artwork Spotlight</h2>
@@ -23,7 +32,10 @@ function ArtworkSpotlight({
         </p>
       </div>
       <p>{description}</p>
-      <ArtworkTimeline />
+      <button onClick={handleSeeMore}>
+        {seeMore ? "See less" : "See more"}
+      </button>
+      {seeMore ? <ArtworkTimeline /> : null}
     </div>
   );
 }

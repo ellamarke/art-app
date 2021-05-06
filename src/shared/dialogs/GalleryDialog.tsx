@@ -57,6 +57,7 @@ function GalleryDialog({
     <div className="dialog">
       <h2>Save to gallery</h2>
       <h3>Your top galleries</h3>
+      <ul></ul>
       <h3>All galleries</h3>
       <ul>
         {savedGalleries.sort(sortAlphabetically).map((gallery) => {

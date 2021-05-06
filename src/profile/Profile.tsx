@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
 import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
 import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
+import ChangeGalleryNameButton from "../shared/buttons/ChangeGalleryNameButton";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -38,6 +39,7 @@ function Profile({ artworks, savedGalleries }: Props) {
           <div>
             <h2>{gallery.name}</h2>
             <DeleteGalleryButton galleryName={gallery.name} />
+            <ChangeGalleryNameButton gallery={gallery} />
             <ArtworksInGallery
               artworks={getArtworksInGallery(artworks, gallery)}
             />
@@ -63,7 +65,7 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
           return artwork.id === savedArtwork.id;
         }) as ArtworkTimelineType;
         return (
-          <div>
+          <div key={artwork.id}>
             <p>
               {artwork.artistName}, {artwork.artworkName}
             </p>

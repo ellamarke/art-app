@@ -4,7 +4,7 @@ import SaveButton from "../shared/buttons/SaveButton";
 function ArtworkTimeline() {
   return (
     <div className="artwork-timeline">
-      <h3>Artwork Timeline</h3>
+      <h2>Artwork Timeline</h2>
       {picassoTimeline.map((artwork) => {
         return (
           <div className="artwork-object" key={artwork.id}>

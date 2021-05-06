@@ -20,3 +20,12 @@ export const removeGallery = (galleryName: string): Action => ({
   type: ActionTypes.REMOVE_GALLERY,
   galleryName,
 });
+
+export const changeGalleryName = (
+  galleryName: string,
+  galleryId: string
+): Action => ({
+  type: ActionTypes.CHANGE_GALLERY_NAME,
+  galleryName,
+  galleryId,
+});
