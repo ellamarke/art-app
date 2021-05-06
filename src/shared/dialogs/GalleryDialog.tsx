@@ -43,11 +43,23 @@ function GalleryDialog({
     setNewGalleryDialogIsOpen(true);
   };
 
+  const sortAlphabetically = (gallery1: Gallery, gallery2: Gallery) => {
+    if (gallery1.name < gallery2.name) {
+      return -1;
+    }
+    if (gallery1.name > gallery2.name) {
+      return 1;
+    }
+    return 0;
+  };
+
   let galleryDialog: JSX.Element | null = (
     <div className="dialog">
       <h2>Save to gallery</h2>
+      <h3>Your top galleries</h3>
+      <h3>All galleries</h3>
       <ul>
-        {savedGalleries.map((gallery) => {
+        {savedGalleries.sort(sortAlphabetically).map((gallery) => {
           return (
             <li
               onClick={(event) => onClick(artworkID, gallery.id)}
