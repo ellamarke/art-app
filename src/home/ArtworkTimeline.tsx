@@ -1,5 +1,7 @@
+import React from "react";
 import { picassoTimeline } from "../reference/AllArtworks";
 import SaveButton from "../shared/buttons/SaveButton";
+import SpotlightTimelineDescription from "./SpotlightTimelineDescription";
 
 function ArtworkTimeline() {
   return (
@@ -12,7 +14,7 @@ function ArtworkTimeline() {
             <img src={artwork.imgSrc} alt={artwork.artworkName} />
             <p className="artwork-name">{artwork.artworkName}</p>
             <SaveButton artworkID={artwork.id} />
-            {/*             <SpotlightTimelineDescription /> */}
+            <SpotlightTimelineDescription currentArtwork={artwork} />
           </div>
         );
       })}
