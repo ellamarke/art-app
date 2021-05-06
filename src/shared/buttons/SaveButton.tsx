@@ -1,5 +1,5 @@
 import { State } from "../../store/types";
-import { createGallery, saveArtwork } from "../../store/actions";
+import { saveArtwork } from "../../store/actions";
 import { connect, ConnectedProps } from "react-redux";
 import GalleryDialog from "../dialogs/GalleryDialog";
 import { useState } from "react";

@@ -56,28 +56,26 @@ function getArtworksInGallery(
 }
 
 function ArtworksInGallery({ artworks }: GalleryProps) {
-  {
-    return (
-      <div>
-        {artworks.map((savedArtwork) => {
-          const artwork = allArtworks.find((artwork) => {
-            return artwork.id === savedArtwork.id;
-          }) as ArtworkTimelineType;
-          return (
-            <div>
-              <p>
-                {artwork.artistName}, {artwork.artworkName}
-              </p>
-              <p>
-                <img src={artwork.imgSrc} />
-              </p>
-              <DeleteButton artworkID={artwork.id} />
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {artworks.map((savedArtwork) => {
+        const artwork = allArtworks.find((artwork) => {
+          return artwork.id === savedArtwork.id;
+        }) as ArtworkTimelineType;
+        return (
+          <div>
+            <p>
+              {artwork.artistName}, {artwork.artworkName}
+            </p>
+            <p>
+              <img src={artwork.imgSrc} alt={artwork.artworkName} />
+            </p>
+            <DeleteButton artworkID={artwork.id} />
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default connector(Profile);

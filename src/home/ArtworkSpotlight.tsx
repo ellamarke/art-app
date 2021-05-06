@@ -3,12 +3,6 @@ import SaveButton from "../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
 import { ArtworkTimelineType } from "../reference/AllArtworks";
 
-type Timeline = {
-  dates: number[];
-  imgSRCs: string[];
-  artworkNames: string[];
-};
-
 function ArtworkSpotlight({
   imgSrc,
   artistName,
@@ -20,7 +14,7 @@ function ArtworkSpotlight({
   return (
     <div className="artwork-spotlight">
       <h2>Artwork Spotlight</h2>
-      <img src={imgSrc} />
+      <img src={imgSrc} alt={artworkName} />
       <SaveButton artworkID={id} />
       <div className="artworkHeading">
         <h3>{artworkName}</h3>

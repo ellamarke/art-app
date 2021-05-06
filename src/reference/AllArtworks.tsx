@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 export type ArtworkTimelineType = {
   artworkName: string;
   artistName: string;
@@ -16,7 +14,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
     artistName: "Pablo Picasso",
     date: 1905,
     imgSrc: "img/picasso/garcon.jpg",
-    id: uuidv4(),
+    id: "1",
     spotlightPicture: false,
   },
   {
@@ -24,7 +22,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
     artistName: "Pablo Picasso",
     date: 1907,
     imgSrc: "img/picasso/les-demoiselles.jpg",
-    id: uuidv4(),
+    id: "2",
     spotlightPicture: false,
   },
   {
@@ -32,7 +30,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
     artistName: "Pablo Picasso",
     date: 1937,
     imgSrc: "img/picasso/femme-au-beret.jpg",
-    id: uuidv4(),
+    id: "3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     spotlightPicture: true,
@@ -42,7 +40,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
     artistName: "Pablo Picasso",
     date: 1937,
     imgSrc: "img/picasso/guernica.jpeg",
-    id: uuidv4(),
+    id: "4",
     spotlightPicture: false,
   },
   {
@@ -50,7 +48,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
     artistName: "Pablo Picasso",
     date: 1955,
     imgSrc: "img/picasso/les-femmes.jpeg",
-    id: uuidv4(),
+    id: "5",
     spotlightPicture: false,
   },
 ];
@@ -61,7 +59,7 @@ export const vanGoghTimeline: ArtworkTimelineType[] = [
     artistName: "Van Gogh",
     date: 1955,
     imgSrc: "img/van-gogh/cafe.jpeg",
-    id: uuidv4(),
+    id: "6",
     spotlightPicture: false,
   },
 ];

@@ -1,4 +1,3 @@
-import ArtRendererContainer from "../shared/ArtRendererContainer";
 import ArtworkSpotlight from "./ArtworkSpotlight";
 import { picassoTimeline } from "../reference/AllArtworks";
 
@@ -7,7 +6,7 @@ function HomePage() {
     return artwork.spotlightPicture;
   });
 
-  if (picassoSpotlight != undefined) {
+  if (picassoSpotlight !== undefined) {
     return (
       <div>
         <h1>Homepage</h1>

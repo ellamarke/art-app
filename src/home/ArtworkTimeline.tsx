@@ -7,9 +7,9 @@ function ArtworkTimeline() {
       <h3>Artwork Timeline</h3>
       {picassoTimeline.map((artwork) => {
         return (
-          <div className="artwork-object">
+          <div className="artwork-object" key={artwork.id}>
             <p className="artwork-date">{artwork.date}</p>
-            <img src={artwork.imgSrc} />
+            <img src={artwork.imgSrc} alt={artwork.artworkName} />
             <p className="artwork-name">{artwork.artworkName}</p>
             <SaveButton artworkID={artwork.id} />
             {/*             <SpotlightTimelineDescription /> */}

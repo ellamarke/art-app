@@ -49,7 +49,10 @@ function GalleryDialog({
       <ul>
         {savedGalleries.map((gallery) => {
           return (
-            <li onClick={(event) => onClick(artworkID, gallery.id)}>
+            <li
+              onClick={(event) => onClick(artworkID, gallery.id)}
+              key={artworkID}
+            >
               {gallery.name}
             </li>
           );

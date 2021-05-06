@@ -12,20 +12,7 @@ import {
 
 const initialState: State = {
   savedArtworks: [],
-  savedGalleries: [
-    {
-      name: "French Art",
-      id: uuidv4(),
-    },
-    {
-      name: "Mexican Art",
-      id: uuidv4(),
-    },
-    {
-      name: "Cool Art",
-      id: uuidv4(),
-    },
-  ],
+  savedGalleries: [],
 };
 
 const state = (state = initialState, action: Action) => {
@@ -65,7 +52,7 @@ const addArtwork = (artworks: Artwork[], artwork: Artwork) => [
 const removeArtwork = (state: State, action: RemoveArtworkAction) => {
   const savedArtworks = state.savedArtworks;
   const newSavedArtworks = savedArtworks.filter(
-    (artwork) => artwork.id != action.id
+    (artwork) => artwork.id !== action.id
   );
   return {
     ...state,
@@ -90,7 +77,7 @@ const createGallery = (state: State, action: CreateGalleryAction) => {
 const removeGallery = (state: State, action: RemoveGalleryAction) => {
   const savedGalleries = state.savedGalleries;
   const newSavedGalleries = savedGalleries.filter(
-    (gallery) => gallery.name != action.galleryName
+    (gallery) => gallery.name !== action.galleryName
   );
   return {
     ...state,

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
-import { TypePredicateKind } from "typescript";
 import { createGallery, saveArtwork } from "../../store/actions";
-import { Gallery, State } from "../../store/types";
+import { State } from "../../store/types";
 
 type Props = PropsFromRedux & {
   newGalleryDialogIsOpen: boolean;
@@ -50,7 +49,14 @@ function CreateGalleryDialog({
       saveArtwork(artworkID, newGallery.id);
       setNewGalleryDialogIsOpen(false);
     }
-  }, [savedGalleries]);
+  }, [
+    savedGalleries,
+    saveArtwork,
+    setNewGalleryDialogIsOpen,
+    newGallery,
+    artworkID,
+    searchTerm,
+  ]);
 
   // We've dispatched something to change the store and the thing we want to do just afterwards depends on that store change
   // That's why we need an if statement (triggered by useState) to determine if a new gallery has been created yet
