@@ -12,6 +12,7 @@ function ArtworkTimeline() {
             <img src={artwork.imgSrc} />
             <p className="artwork-name">{artwork.artworkName}</p>
             <SaveButton artworkID={artwork.id} />
+            {/*             <SpotlightTimelineDescription /> */}
           </div>
         );
       })}

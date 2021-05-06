@@ -6,13 +6,17 @@ export const saveArtwork = (id: string, gallery: string): Action => ({
   gallery,
 });
 
-export const removeArtwork = (id: string, gallery: string): Action => ({
+export const removeArtwork = (id: string): Action => ({
   type: ActionTypes.REMOVE_ARTWORK,
   id,
-  gallery,
 });
 
 export const createGallery = (galleryName: string): Action => ({
   type: ActionTypes.CREATE_GALLERY,
+  galleryName,
+});
+
+export const removeGallery = (galleryName: string): Action => ({
+  type: ActionTypes.REMOVE_GALLERY,
   galleryName,
 });

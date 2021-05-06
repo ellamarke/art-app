@@ -7,6 +7,7 @@ import {
   Artwork,
   RemoveArtworkAction,
   CreateGalleryAction,
+  RemoveGalleryAction,
 } from "./types";
 
 const initialState: State = {
@@ -37,6 +38,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.CREATE_GALLERY:
       return createGallery(state, action);
+
+    case ActionTypes.REMOVE_GALLERY:
+      return removeGallery(state, action);
 
     default:
       return state;
@@ -77,6 +81,17 @@ const createGallery = (state: State, action: CreateGalleryAction) => {
   };
   const newSavedGalleries = [...savedGalleries, newGallery];
 
+  return {
+    ...state,
+    savedGalleries: newSavedGalleries,
+  };
+};
+
+const removeGallery = (state: State, action: RemoveGalleryAction) => {
+  const savedGalleries = state.savedGalleries;
+  const newSavedGalleries = savedGalleries.filter(
+    (gallery) => gallery.name != action.galleryName
+  );
   return {
     ...state,
     savedGalleries: newSavedGalleries,

@@ -2,6 +2,7 @@ import { Artwork, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
 import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
+import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -36,6 +37,7 @@ function Profile({ artworks, savedGalleries }: Props) {
         return (
           <div>
             <h2>{gallery.name}</h2>
+            <DeleteGalleryButton galleryName={gallery.name} />
             <ArtworksInGallery
               artworks={getArtworksInGallery(artworks, gallery)}
             />

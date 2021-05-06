@@ -1,5 +1,5 @@
 import { State } from "../../store/types";
-import { removeArtwork } from "../../store/actions";
+import { removeGallery } from "../../store/actions";
 import { connect, ConnectedProps } from "react-redux";
 
 const mapStateToProps = (state: State) => ({
@@ -7,7 +7,7 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = {
-  removeArtwork: removeArtwork,
+  removeGallery,
   /* this dispatches things on our behalf */
 };
 
@@ -19,19 +19,16 @@ const connector = connect(
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux & {
-  artworkID: string;
+  galleryName: string;
 };
-
-function DeleteButton({
-  /* we pass in the things we want dispatched by redux here */
-  removeArtwork,
-  artworkID,
-}: Props) {
+function DeleteGalleryButton({ removeGallery, galleryName }: Props) {
   return (
     <div className="delete-button">
-      <button onClick={(event) => removeArtwork(artworkID)}>delete</button>
+      <button onClick={(event) => removeGallery(galleryName)}>
+        Delete {galleryName}
+      </button>
     </div>
   );
 }
 
-export default connector(DeleteButton);
+export default connector(DeleteGalleryButton);
