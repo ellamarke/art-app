@@ -4,6 +4,7 @@ import DeleteButton from "../shared/buttons/DeleteButton";
 import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
 import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
 import ChangeGalleryNameButton from "../shared/buttons/ChangeGalleryNameButton";
+import AddGalleryDescriptionButton from "../shared/buttons/AddGalleryDescriptionButton";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -36,10 +37,12 @@ function Profile({ artworks, savedGalleries }: Props) {
       <h1>Profile</h1>
       {savedGalleries.map((gallery) => {
         return (
-          <div>
+          <div key={gallery.id}>
             <h2>{gallery.name}</h2>
             <DeleteGalleryButton galleryName={gallery.name} />
             <ChangeGalleryNameButton gallery={gallery} />
+            <AddGalleryDescriptionButton galleryId={gallery.id} />
+            <p>{gallery.description}</p>
             <ArtworksInGallery
               artworks={getArtworksInGallery(artworks, gallery)}
             />

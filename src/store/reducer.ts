@@ -9,6 +9,7 @@ import {
   CreateGalleryAction,
   RemoveGalleryAction,
   ChangeGalleryNameAction,
+  AddGalleryDescriptionAction,
 } from "./types";
 
 const initialState: State = {
@@ -32,6 +33,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.CHANGE_GALLERY_NAME:
       return changeGalleryName(state, action);
+
+    case ActionTypes.ADD_GALLERY_DESCRIPTION:
+      return addGalleryDescription(state, action);
 
     default:
       return state;
@@ -99,6 +103,28 @@ const changeGalleryName = (
       return {
         ...gallery,
         name: action.galleryName,
+      };
+    } else {
+      return gallery;
+    }
+  });
+
+  return {
+    ...state,
+    savedGalleries: newSavedGalleries,
+  };
+};
+
+const addGalleryDescription = (
+  state: State,
+  action: AddGalleryDescriptionAction
+): State => {
+  const savedGalleries = state.savedGalleries;
+  const newSavedGalleries = savedGalleries.map((gallery) => {
+    if (gallery.id === action.galleryId) {
+      return {
+        ...gallery,
+        description: action.description,
       };
     } else {
       return gallery;

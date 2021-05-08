@@ -29,3 +29,12 @@ export const changeGalleryName = (
   galleryName,
   galleryId,
 });
+
+export const addGalleryDescription = (
+  description: string,
+  galleryId: string
+): Action => ({
+  type: ActionTypes.ADD_GALLERY_DESCRIPTION,
+  description,
+  galleryId,
+});

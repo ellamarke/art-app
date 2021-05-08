@@ -11,6 +11,7 @@ export interface State {
 export interface Gallery {
   name: string;
   id: string;
+  description?: string;
 }
 
 export enum ActionTypes {
@@ -19,6 +20,7 @@ export enum ActionTypes {
   CREATE_GALLERY = "CREATE_GALLERY",
   REMOVE_GALLERY = "REMOVE_GALLERY",
   CHANGE_GALLERY_NAME = "CHANGE_GALLERY_NAME",
+  ADD_GALLERY_DESCRIPTION = "ADD_GALLERY_DESCRIPTION",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
@@ -49,9 +51,16 @@ export interface ChangeGalleryNameAction {
   galleryId: string;
 }
 
+export interface AddGalleryDescriptionAction {
+  type: typeof ActionTypes.ADD_GALLERY_DESCRIPTION;
+  galleryId: string;
+  description: string;
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
   | CreateGalleryAction
   | RemoveGalleryAction
-  | ChangeGalleryNameAction;
+  | ChangeGalleryNameAction
+  | AddGalleryDescriptionAction;
