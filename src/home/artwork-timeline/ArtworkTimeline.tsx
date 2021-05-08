@@ -1,6 +1,6 @@
 import React from "react";
-import { picassoTimeline } from "../reference/AllArtworks";
-import SaveButton from "../shared/buttons/SaveButton";
+import { picassoTimeline } from "../../reference/AllArtworks";
+import SaveButton from "../../shared/buttons/SaveButton";
 import SpotlightTimelineDescription from "./SpotlightTimelineDescription";
 
 function ArtworkTimeline() {

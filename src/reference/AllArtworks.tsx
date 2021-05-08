@@ -1,4 +1,4 @@
-export type ArtworkTimelineType = {
+export type ArtworkDetailsType = {
   artworkName: string;
   artistName: string;
   date: number;
@@ -8,7 +8,7 @@ export type ArtworkTimelineType = {
   spotlightPicture: boolean;
 };
 
-export const picassoTimeline: ArtworkTimelineType[] = [
+export const picassoTimeline: ArtworkDetailsType[] = [
   {
     artworkName: "Garcon a la pipe",
     artistName: "Pablo Picasso",
@@ -53,7 +53,7 @@ export const picassoTimeline: ArtworkTimelineType[] = [
   },
 ];
 
-export const vanGoghTimeline: ArtworkTimelineType[] = [
+export const vanGoghTimeline: ArtworkDetailsType[] = [
   {
     artworkName: "Cafe at Night",
     artistName: "Van Gogh",

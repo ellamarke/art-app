@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SaveButton from "../shared/buttons/SaveButton";
+import SaveButton from "../../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
-import { ArtworkTimelineType } from "../reference/AllArtworks";
+import { ArtworkDetailsType } from "../../reference/AllArtworks";
 
 function ArtworkSpotlight({
   imgSrc,
@@ -10,7 +10,7 @@ function ArtworkSpotlight({
   date,
   description,
   id,
-}: ArtworkTimelineType) {
+}: ArtworkDetailsType) {
   const [seeMore, setSeeMore] = useState(false);
 
   const handleSeeMore = () => {

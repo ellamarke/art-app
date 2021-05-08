@@ -1,7 +1,7 @@
 import { Artwork, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
-import { allArtworks, ArtworkTimelineType } from "../reference/AllArtworks";
+import { allArtworks, ArtworkDetailsType } from "../reference/AllArtworks";
 import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
 import ChangeGalleryNameButton from "../shared/buttons/ChangeGalleryNameButton";
 import AddGalleryDescriptionButton from "../shared/buttons/AddGalleryDescriptionButton";
@@ -66,7 +66,7 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
       {artworks.map((savedArtwork) => {
         const artwork = allArtworks.find((artwork) => {
           return artwork.id === savedArtwork.id;
-        }) as ArtworkTimelineType;
+        }) as ArtworkDetailsType;
         return (
           <div key={artwork.id}>
             <p>

@@ -1,5 +1,5 @@
 import reducer from "./reducer";
-import { saveArtwork, removeArtwork } from "./actions";
+import { saveArtwork, removeArtwork, addGalleryDescription } from "./actions";
 
 describe("reducer", () => {
   describe("SAVE_ARTWORK", () => {
@@ -23,6 +23,7 @@ describe("reducer", () => {
               gallery: "French art",
             },
           ],
+          savedGalleries: [],
         },
         saveArtwork("3", "Spanish art")
       );
@@ -46,11 +47,31 @@ describe("reducer", () => {
               gallery: "French art",
             },
           ],
+          savedGalleries: [],
         },
-        removeArtwork("1", "French art")
+        removeArtwork("1")
       );
 
       expect(state.savedArtworks).toHaveLength(0);
+    });
+  });
+
+  describe("ADD_GALLERY_DESCRIPTION", () => {
+    it("Adds a description to the gallery object", () => {
+      const state = reducer(
+        {
+          savedArtworks: [],
+          savedGalleries: [
+            {
+              name: "my gallery",
+              id: "1",
+            },
+          ],
+        },
+        addGalleryDescription("my description", "1")
+      );
+
+      expect(state.savedGalleries[0].description).toEqual("my description");
     });
   });
 });

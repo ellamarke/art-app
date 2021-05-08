@@ -37,6 +37,7 @@ function AddGalleryDescriptionDialog({
 
   const handleAddDescription = (galleryDescription: string) => {
     addGalleryDescription(galleryDescription, galleryId);
+    setIsOpen(false);
   };
 
   let newGalleryDescriptionDialog: JSX.Element | null = (

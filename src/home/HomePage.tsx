@@ -1,4 +1,4 @@
-import ArtworkSpotlight from "./ArtworkSpotlight";
+import ArtworkSpotlight from "./artwork-timeline/ArtworkSpotlight";
 import { picassoTimeline } from "../reference/AllArtworks";
 
 function HomePage() {

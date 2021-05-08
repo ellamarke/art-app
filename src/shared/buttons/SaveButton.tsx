@@ -35,7 +35,7 @@ function SaveButton({
   return (
     <div>
       <div className="save-button">
-        <button onClick={(event) => setIsOpen(true)}>save</button>
+        <button onClick={() => setIsOpen(true)}>save</button>
       </div>
       <GalleryDialog
         isOpen={isOpen}
