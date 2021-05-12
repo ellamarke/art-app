@@ -5,6 +5,7 @@ import HomePage from "./home/HomePage";
 import Profile from "./profile/Profile";
 import Explore from "./explore/Explore";
 import Gallery from "./gallery/Gallery";
+import ArtistPage from "./explore/ArtistPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import state from "./store/reducer";
@@ -38,6 +39,7 @@ function App() {
             <Route path="/explore" component={Explore} />
             <Route path="/profile" component={Profile} />
             <Route path="/gallery" component={Gallery} />
+            <Route path="/artist-page" component={ArtistPage} />
           </Switch>
         </PersistGate>
       </Provider>

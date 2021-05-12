@@ -7,6 +7,7 @@ export interface State {
   savedArtworks: Artwork[];
   savedGalleries: Gallery[];
   activeGalleryId: string | null;
+  activeArtist: string | null;
 }
 
 export interface Gallery {
@@ -23,6 +24,7 @@ export enum ActionTypes {
   CHANGE_GALLERY_NAME = "CHANGE_GALLERY_NAME",
   ADD_GALLERY_DESCRIPTION = "ADD_GALLERY_DESCRIPTION",
   CHANGE_ACTIVE_GALLERY = "CHANGE_ACTIVE_GALLERY",
+  CHANGE_ACTIVE_ARTIST = "CHANGE_ACTIVE_ARTIST",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
@@ -64,6 +66,11 @@ export interface ChangeActiveGalleryIdAction {
   galleryId: string;
 }
 
+export interface ChangeActiveArtistAction {
+  type: typeof ActionTypes.CHANGE_ACTIVE_ARTIST;
+  artistName: string;
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
@@ -71,4 +78,5 @@ export type Action =
   | RemoveGalleryAction
   | ChangeGalleryNameAction
   | AddGalleryDescriptionAction
-  | ChangeActiveGalleryIdAction;
+  | ChangeActiveGalleryIdAction
+  | ChangeActiveArtistAction;

@@ -63,12 +63,12 @@ function getArtworksInGallery(
 function ArtworksInGallery({ artworks }: GalleryProps) {
   return (
     <div>
-      {artworks.map((savedArtwork) => {
+      {artworks.map((savedArtwork, index) => {
         const artwork = allArtworks.find((artwork) => {
           return artwork.id === savedArtwork.id;
         }) as ArtworkDetailsType;
         return (
-          <div key={artwork.id}>
+          <div key={index}>
             <p>
               {artwork.artistName}, {artwork.artworkName}
             </p>

@@ -9,7 +9,6 @@ function PicassoTimeline() {
   if (picassoSpotlight !== undefined) {
     return (
       <div>
-        <h1>Homepage</h1>
         <ArtworkSpotlight
           imgSrc={picassoSpotlight.imgSrc}
           artworkName={picassoSpotlight.artworkName}

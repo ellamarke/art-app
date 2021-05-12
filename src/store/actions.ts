@@ -43,3 +43,8 @@ export const changeActiveGalleryId = (galleryId: string): Action => ({
   type: ActionTypes.CHANGE_ACTIVE_GALLERY,
   galleryId,
 });
+
+export const changeActiveArtist = (artistName: string): Action => ({
+  type: ActionTypes.CHANGE_ACTIVE_ARTIST,
+  artistName,
+});
