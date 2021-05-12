@@ -38,3 +38,8 @@ export const addGalleryDescription = (
   description,
   galleryId,
 });
+
+export const changeActiveGalleryId = (galleryId: string): Action => ({
+  type: ActionTypes.CHANGE_ACTIVE_GALLERY,
+  galleryId,
+});

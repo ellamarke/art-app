@@ -18,3 +18,17 @@ img {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.trending-gallery {
+  background-color: antiquewhite;
+}
+
+.trending-gallery-grid {
+  display: flex;
+}
+
+.artwork {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

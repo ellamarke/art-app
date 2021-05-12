@@ -10,11 +10,13 @@ import {
   RemoveGalleryAction,
   ChangeGalleryNameAction,
   AddGalleryDescriptionAction,
+  ChangeActiveGalleryIdAction,
 } from "./types";
 
 const initialState: State = {
   savedArtworks: [],
   savedGalleries: [],
+  activeGalleryId: null,
 };
 
 const state = (state = initialState, action: Action) => {
@@ -36,6 +38,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.ADD_GALLERY_DESCRIPTION:
       return addGalleryDescription(state, action);
+
+    case ActionTypes.CHANGE_ACTIVE_GALLERY:
+      return changeActiveGalleryId(state, action);
 
     default:
       return state;
@@ -134,6 +139,17 @@ const addGalleryDescription = (
   return {
     ...state,
     savedGalleries: newSavedGalleries,
+  };
+};
+
+const changeActiveGalleryId = (
+  state: State,
+  action: ChangeActiveGalleryIdAction
+): State => {
+  const newActiveGalleryId = action.galleryId;
+  return {
+    ...state,
+    activeGalleryId: newActiveGalleryId,
   };
 };
 
