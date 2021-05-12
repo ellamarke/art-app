@@ -1,8 +1,8 @@
+import React from "react";
 import { connect, ConnectedProps } from "react-redux";
+import { ArtworkDetailsType } from "../reference/AllArtworks";
 import { userGalleries, UserGalleryType } from "../reference/UserGalleries";
-import { State } from "../store/types";
-
-type Props = PropsFromRedux;
+import { Artwork, State } from "../store/types";
 
 const mapStateToProps = (state: State) => ({
   activeGalleryId: state.activeGalleryId,
@@ -14,12 +14,16 @@ const mapDispatchToProps = {
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
+type Props = PropsFromRedux & {};
+
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
 function Gallery({ activeGalleryId }: Props) {
   const activeGallery = userGalleries.find((gallery) => {
     return gallery.id === activeGalleryId;
   });
+
+  const artworksInGallery = activeGallery?.gallery;
 
   if (typeof activeGallery === "undefined") {
     return (
@@ -32,6 +36,16 @@ function Gallery({ activeGalleryId }: Props) {
   return (
     <div>
       <h1>{activeGallery.galleryName}</h1>
+      {artworksInGallery?.map((artwork) => {
+        return (
+          <div key={artwork.id}>
+            <h4>
+              {artwork.artworkName}, {artwork.artistName}
+            </h4>
+            <img src={artwork.imgSrc} />
+          </div>
+        );
+      })}
     </div>
   );
 }
