@@ -1,4 +1,4 @@
-import { blackRadicalArt } from "./Users";
+import { blackRadicalArt, NormanRockwellRetrospective } from "./Users";
 
 export type ArtworkDetailsType = {
   artworkName: string;
@@ -70,4 +70,5 @@ export const allArtworks = [
   ...picassoTimeline,
   ...vanGoghTimeline,
   ...blackRadicalArt,
+  ...NormanRockwellRetrospective,
 ];

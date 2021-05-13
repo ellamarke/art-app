@@ -1,5 +1,5 @@
 import { ArtworkDetailsType } from "./AllArtworks";
-import { blackRadicalArt, TestGallery } from "./Users";
+import { blackRadicalArt, NormanRockwellRetrospective } from "./Users";
 
 export type UserGalleryType = {
   gallery: ArtworkDetailsType[];
@@ -16,9 +16,9 @@ export const userGalleries: UserGalleryType[] = [
     id: "1",
   },
   {
-    gallery: TestGallery,
-    galleryName: "Test gallery",
-    username: "Test user",
+    gallery: NormanRockwellRetrospective,
+    galleryName: "Normal Rockwell Retrospective",
+    username: "The Tate Modern",
     id: "2",
   },
 ];

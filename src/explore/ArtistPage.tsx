@@ -32,11 +32,20 @@ function ArtistPage({ activeArtist }: Props) {
   }
   return (
     <div>
-      <h1>{currentArtist.name}</h1>
+      <h2>{currentArtist.name}</h2>
+      <h3>{currentArtist.dates}</h3>
+      <p>{currentArtist.description}</p>
       {allArtworks
         .filter((artwork) => artwork.artistName === currentArtist.name)
-        .map((artwork) => {
-          return <p>HELLPO</p>;
+        .map((artwork, index) => {
+          return (
+            <div className="artwork-renderer" key={index}>
+              <h4>
+                {artwork.artworkName}, {artwork.artistName}
+              </h4>
+              <img src={artwork.imgSrc} />
+            </div>
+          );
         })}
     </div>
   );
