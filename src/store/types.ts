@@ -8,12 +8,21 @@ export interface State {
   savedGalleries: Gallery[];
   activeGalleryId: string | null;
   activeArtist: string | null;
+  dateFilters: DateFilter;
 }
 
 export interface Gallery {
   name: string;
   id: string;
   description?: string;
+}
+
+export interface DateFilter {
+  "1950": boolean;
+  "1960": boolean;
+  "1970": boolean;
+  "1980": boolean;
+  "1990": boolean;
 }
 
 export enum ActionTypes {
@@ -25,6 +34,7 @@ export enum ActionTypes {
   ADD_GALLERY_DESCRIPTION = "ADD_GALLERY_DESCRIPTION",
   CHANGE_ACTIVE_GALLERY = "CHANGE_ACTIVE_GALLERY",
   CHANGE_ACTIVE_ARTIST = "CHANGE_ACTIVE_ARTIST",
+  SET_DATE_FILTER = "SET_DATE_FILTER",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
@@ -71,6 +81,12 @@ export interface ChangeActiveArtistAction {
   artistName: string;
 }
 
+export interface SetDateFilterAction {
+  type: typeof ActionTypes.SET_DATE_FILTER;
+  date: keyof DateFilter;
+  enabled: boolean;
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
@@ -79,4 +95,5 @@ export type Action =
   | ChangeGalleryNameAction
   | AddGalleryDescriptionAction
   | ChangeActiveGalleryIdAction
-  | ChangeActiveArtistAction;
+  | ChangeActiveArtistAction
+  | SetDateFilterAction;
