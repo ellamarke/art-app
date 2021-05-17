@@ -6,13 +6,17 @@ import SpotlightTimelineDescription from "./SpotlightTimelineDescription";
 function ArtworkTimeline() {
   return (
     <div className="artwork-timeline">
-      <h2>Artwork Timeline</h2>
+      <h2 className="caps-headline-light">Artwork Timeline</h2>
       {picassoTimeline.map((artwork) => {
         return (
           <div className="artwork-object" key={artwork.id}>
             <p className="artwork-date">{artwork.date}</p>
-            <img src={artwork.imgSrc} alt={artwork.artworkName} />
-            <p className="artwork-name">{artwork.artworkName}</p>
+            <img
+              src={artwork.imgSrc}
+              alt={artwork.artworkName}
+              className="timeline-artwork"
+            />
+            <p className="caption">{artwork.artworkName}</p>
             <SaveButton artworkID={artwork.id} />
             <SpotlightTimelineDescription currentArtwork={artwork} />
           </div>

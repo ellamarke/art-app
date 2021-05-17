@@ -1,12 +1,53 @@
 @import "./variables";
 @import "./nav.scss";
 @import "./utilities.scss";
-
+@import "./spotlight";
+@import "./buttons";
 
 body {
     font-family: 'Manrope', sans-serif;
+    color: $black;
+    background: rgb(227,252,230);
+    background: linear-gradient(0deg, rgba(227,252,230,1) 0%, rgba(245,239,201,1) 50%, rgba(251,211,187,1) 100%);
 
     img {
         width: 100%;
+    }
+
+    h2 {
+        @include sectionTitle;
+    }
+
+    .caps-headline {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        line-height: 110%;
+    }
+
+    .caps-headline-light {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        line-height: 110%;
+        font-weight: 100;
+        text-align: left;
+    }
+
+    .small-heading {
+        font-size: 1.5rem;
+        padding: 1em 0;
+        font-weight: 100;
+    }
+
+    .caption {
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    .text-content {
+        @include standardPadding;
+    }
+
+    .standard-margin-top {
+        margin-top: 0.7em;
     }
 }

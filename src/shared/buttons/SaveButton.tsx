@@ -4,6 +4,7 @@ import { connect, ConnectedProps } from "react-redux";
 import GalleryDialog from "../dialogs/GalleryDialog";
 import { useState } from "react";
 import CreateGalleryDialog from "../dialogs/CreateGalleryDialog";
+import AddIcon from "@material-ui/icons/Add";
 
 const mapStateToProps = (state: State) => ({
   //
@@ -35,7 +36,10 @@ function SaveButton({
   return (
     <div>
       <div className="save-button">
-        <button onClick={() => setIsOpen(true)}>save</button>
+        <button onClick={() => setIsOpen(true)}>
+          {<AddIcon className="symbol" />}
+          <p>save</p>
+        </button>
       </div>
       <GalleryDialog
         isOpen={isOpen}

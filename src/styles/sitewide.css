@@ -1,6 +1,6 @@
 nav {
   background-color: #282828;
-  color: #F2F0CC;
+  color: #FCDABC;
   width: 100%;
   padding: 1em;
 }
@@ -9,22 +9,26 @@ nav .nav-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 nav .nav-container .home-button {
   font-weight: 900;
+  font-size: 1.3rem;
 }
 
 nav .nav-container .right-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-self: flex-end;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-nav .nav-container .right-buttons .explore-button, nav .nav-container .right-buttons .profile-button {
-  margin: 0 auto;
+nav .nav-container .right-buttons .profile-button {
+  margin-left: 1.3em;
 }
 
 * {
@@ -52,11 +56,101 @@ button:focus {
   outline: none;
 }
 
+.artwork-date {
+  color: #F69F8B;
+  font-size: 6rem;
+}
+
+.timeline-artwork {
+  z-index: 100;
+  margin-top: -3em;
+}
+
+button {
+  background-color: rgba(255, 0, 0, 0);
+  border: #282828 1px solid;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+button .symbol {
+  background-color: #282828;
+  color: #FCDABC;
+}
+
+button p {
+  padding: 0.05em 0.5em 0em 0.5em;
+}
+
+.peach-button {
+  background-color: #F69F8B;
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding: 0.2em 0.7em;
+  text-align: center;
+  color: #282828;
+  margin-top: 1em;
+}
+
+.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
+  color: #282828;
+  background: #e3fce6;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e3fce6), color-stop(50%, #f5efc9), to(#fbd3bb));
+  background: linear-gradient(0deg, #e3fce6 0%, #f5efc9 50%, #fbd3bb 100%);
 }
 
 body img {
   width: 100%;
+}
+
+body h2 {
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+body .caps-headline {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  line-height: 110%;
+}
+
+body .caps-headline-light {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  line-height: 110%;
+  font-weight: 100;
+  text-align: left;
+}
+
+body .small-heading {
+  font-size: 1.5rem;
+  padding: 1em 0;
+  font-weight: 100;
+}
+
+body .caption {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+body .text-content {
+  padding: 1.2em 1.8em;
+}
+
+body .standard-margin-top {
+  margin-top: 0.7em;
 }
 /*# sourceMappingURL=sitewide.css.map */

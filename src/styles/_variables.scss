@@ -2,3 +2,17 @@ $black: #282828;
 $peach: #F69F8B;
 $yellow: #F2F0CC;
 $pale-rose: #FCDABC;
+
+@mixin sectionTitle {
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+@mixin standardPadding {
+    padding: 1.2em 1.8em;
+}
+
+@mixin standardMarginTop {
+    margin-top: 1em;
+}

@@ -1,23 +1,25 @@
 nav {
     background-color: $black;
-    color: $yellow;
+    color: $pale-rose;
     width: 100%;
     padding: 1em;
 
     .nav-container {
         display: flex;
-        font-size: 1.2rem;
+        justify-content: space-between;
 
         .home-button {
             font-weight: 900;
+            font-size: 1.3rem;
         }
 
         .right-buttons {
             display: flex;
-            justify-self: flex-end;
+            font-size: 1rem;
+            font-weight: 600;
 
-            .explore-button, .profile-button {
-                margin: 0 auto;
+            .profile-button {
+                margin-left: 1.3em;
             }
         }
     }

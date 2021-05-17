@@ -50,20 +50,27 @@ function ArtworkSpotlight({
   }
   return (
     <div className="artwork-spotlight">
-      <h2>Artwork Spotlight</h2>
+      <h2>artwork spotlight</h2>
       <img src={imgSrc} alt={artworkName} />
-      <SaveButton artworkID={id} />
-      <div className="artworkHeading">
-        <h3>{artworkName}</h3>
-        <p onClick={() => goToArtistPage(artistName)}>
-          {artistName}, {date}
-        </p>
+      <div className="text-content">
+        <SaveButton artworkID={id} />
+        <div className="artwork-heading">
+          <h3 className="caps-headline standard-margin-top">{artworkName}</h3>
+          <p
+            onClick={() => goToArtistPage(artistName)}
+            className="small-heading"
+          >
+            {artistName}, {date}
+          </p>
+        </div>
+        <p>{description}</p>
+        <div className="button-container">
+          <button onClick={handleSeeMore} className="peach-button">
+            {seeMore ? "see less" : "see more"}
+          </button>
+        </div>
+        {seeMore ? <ArtworkTimeline /> : null}
       </div>
-      <p>{description}</p>
-      <button onClick={handleSeeMore}>
-        {seeMore ? "See less" : "See more"}
-      </button>
-      {seeMore ? <ArtworkTimeline /> : null}
     </div>
   );
 }
