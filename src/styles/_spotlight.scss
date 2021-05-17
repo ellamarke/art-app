@@ -1,9 +1,27 @@
 .artwork-date {
     color: $peach;
-    font-size: 6rem;
+    font-size: 6.5rem;
 }
 
-.timeline-artwork {
-    z-index: 100;
-    margin-top: -3em;
+.artwork-object {
+    display: flex;
+    flex-direction: column;
+
+    .timeline-artwork {
+        z-index: 100;
+        margin-top: -2.7em;
+        padding: 0 -1.8em;
+        width: 80%;
+    }
+}
+
+.date-parallax, .artwork-date {
+    z-index: -10;
+}
+
+
+.artwork-object:nth-child(even) .timeline-artwork{
+   align-self: right;
+   justify-self: right;
+   text-align: right;
 }

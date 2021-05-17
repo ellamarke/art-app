@@ -13,6 +13,7 @@ import { createStore } from "redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const persistConfig = {
   key: "root",
@@ -32,16 +33,18 @@ function App() {
   return (
     <Router>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Nav />
-          <Switch>
-            <Route path="/" component={HomePage} exact />
-            <Route path="/explore" component={Explore} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/gallery" component={Gallery} />
-            <Route path="/artist-page" component={ArtistPage} />
-          </Switch>
-        </PersistGate>
+        <ParallaxProvider>
+          <PersistGate loading={null} persistor={persistor}>
+            <Nav />
+            <Switch>
+              <Route path="/" component={HomePage} exact />
+              <Route path="/explore" component={Explore} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/gallery" component={Gallery} />
+              <Route path="/artist-page" component={ArtistPage} />
+            </Switch>
+          </PersistGate>
+        </ParallaxProvider>
       </Provider>
     </Router>
   );

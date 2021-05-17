@@ -2,6 +2,7 @@ import React from "react";
 import { picassoTimeline } from "../../reference/AllArtworks";
 import SaveButton from "../../shared/buttons/SaveButton";
 import SpotlightTimelineDescription from "./SpotlightTimelineDescription";
+import { Parallax } from "react-scroll-parallax";
 
 function ArtworkTimeline() {
   return (
@@ -10,7 +11,9 @@ function ArtworkTimeline() {
       {picassoTimeline.map((artwork) => {
         return (
           <div className="artwork-object" key={artwork.id}>
-            <p className="artwork-date">{artwork.date}</p>
+            <Parallax className="date-parallax" y={[-20, 20]} tagOuter="figure">
+              <p className="artwork-date">{artwork.date}</p>
+            </Parallax>
             <img
               src={artwork.imgSrc}
               alt={artwork.artworkName}
