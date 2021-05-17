@@ -21,11 +21,14 @@ const initialState: State = {
   activeGalleryId: null,
   activeArtist: null,
   dateFilters: {
+    "1930": true,
+    "1940": true,
     "1950": true,
     "1960": true,
     "1970": true,
     "1980": true,
     "1990": true,
+    "2000": true,
   },
 };
 

@@ -18,11 +18,14 @@ export interface Gallery {
 }
 
 export interface DateFilter {
+  "1930": boolean;
+  "1940": boolean;
   "1950": boolean;
   "1960": boolean;
   "1970": boolean;
   "1980": boolean;
   "1990": boolean;
+  "2000": boolean;
 }
 
 export enum ActionTypes {

@@ -37,17 +37,22 @@ function Explore({ setDateFilter, dateFilters }: Props) {
   };
 
   const isYearValidForAnyFilter = (year: number): boolean => {
-    return !!activeDateFilters.find((
-      yearFilter // turns something truthy into a boolean
-    ) => isYearValid(year, yearFilter));
+    return !!activeDateFilters.find(
+      (
+        yearFilter // turns something truthy into a boolean
+      ) => isYearValid(year, yearFilter)
+    );
   };
 
   const years: Array<keyof DateFilter> = [
+    "1930",
+    "1940",
     "1950",
     "1960",
     "1970",
     "1980",
     "1990",
+    "2000",
   ];
   return (
     <div>
@@ -56,20 +61,21 @@ function Explore({ setDateFilter, dateFilters }: Props) {
       <h3>Time period</h3>
       <p>I want to see art created during the:</p>
       <div className="date-filters">
-        {years.map((year) => (
+        {years.map((year, index) => (
           <MakeButton
             date={year}
             dateFilters={dateFilters}
             setDateFilter={setDateFilter}
+            key={index}
           />
         ))}
       </div>
       {allArtworks
         .filter(({ date }) => isYearValidForAnyFilter(date))
-        .map((artwork) => {
+        .map((artwork, index) => {
           return (
-            <div>
-              <img src={artwork.imgSrc} />
+            <div className="art-in-grid" key={index}>
+              <img src={artwork.imgSrc} alt={artwork.artworkName} />
               <p>{artwork.artworkName}</p>
               <p>{artwork.date}</p>
             </div>

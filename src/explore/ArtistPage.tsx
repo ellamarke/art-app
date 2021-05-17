@@ -43,7 +43,7 @@ function ArtistPage({ activeArtist }: Props) {
               <h4>
                 {artwork.artworkName}, {artwork.artistName}
               </h4>
-              <img src={artwork.imgSrc} />
+              <img src={artwork.imgSrc} alt={artwork.artworkName} />
             </div>
           );
         })}

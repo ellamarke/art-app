@@ -1,0 +1,24 @@
+nav {
+    background-color: $black;
+    color: $yellow;
+    width: 100%;
+    padding: 1em;
+
+    .nav-container {
+        display: flex;
+        font-size: 1.2rem;
+
+        .home-button {
+            font-weight: 900;
+        }
+
+        .right-buttons {
+            display: flex;
+            justify-self: flex-end;
+
+            .explore-button, .profile-button {
+                margin: 0 auto;
+            }
+        }
+    }
+}

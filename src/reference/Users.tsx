@@ -134,3 +134,46 @@ export const NormanRockwellRetrospective: ArtworkDetailsType[] = [
     spotlightPicture: false,
   },
 ];
+
+export const FeministArt: ArtworkDetailsType[] = [
+  {
+    artworkName: "Blue Purple Tilt",
+    artistName: "Jenny Holzer",
+    date: 2007,
+    imgSrc: "img/jenny-holzer/blue-purple-tilt.jpg",
+    id: "fem-1",
+    spotlightPicture: true,
+  },
+  {
+    artworkName: "Survival",
+    artistName: "Jenny Holzer",
+    date: 1985,
+    imgSrc: "img/jenny-holzer/protect-me.jpeg",
+    id: "fem-2",
+    spotlightPicture: true,
+  },
+  {
+    artworkName: "Untitled (We Don't Need Another Hero)",
+    artistName: "Barbara Kruger",
+    date: 1987,
+    imgSrc: "img/barbara-kruger/untitled.jpeg",
+    id: "fem-3",
+    spotlightPicture: true,
+  },
+  {
+    artworkName: "Untitled (Your Body is a Battleground)",
+    artistName: "Barbara Kruger",
+    date: 1985,
+    imgSrc: "img/barbara-kruger/body-battleground.jpeg",
+    id: "fem-4",
+    spotlightPicture: true,
+  },
+  {
+    artworkName: "Bird Woman",
+    artistName: "Sarah Charlesworth",
+    date: 1965,
+    imgSrc: "img/sarah-charlesworth/bird-woman.jpeg",
+    id: "fem-5",
+    spotlightPicture: true,
+  },
+];

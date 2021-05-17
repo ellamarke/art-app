@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <nav>
-      <ul className="nav-container"></ul>
-      <Link to="/" className="home-button">
-        <li>Home</li>
-      </Link>
-      <Link to="/profile" className="profile-button">
-        <li>Profile</li>
-      </Link>
-      <Link to="/explore" className="explore-button">
-        <li>Explore</li>
-      </Link>
+      <ul className="nav-container">
+        <Link to="/" className="home-button">
+          <li>artclub.</li>
+        </Link>
+        <div className="right-buttons">
+          <Link to="/explore" className="explore-button">
+            <li>explore</li>
+          </Link>
+          <Link to="/profile" className="profile-button">
+            <li>my galleries</li>
+          </Link>
+        </div>
+      </ul>
     </nav>
   );
 }
