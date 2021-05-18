@@ -7,6 +7,7 @@ nav {
     .nav-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .home-button {
             font-weight: 900;
@@ -19,7 +20,7 @@ nav {
             font-weight: 600;
 
             .profile-button {
-                margin-left: 1.3em;
+                margin-left: 1.6em;
             }
         }
     }

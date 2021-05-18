@@ -8,12 +8,20 @@ function SpotlightTimelineDescription({ currentArtwork }: Props) {
 
   if (currentArtwork.spotlightPicture) {
     spotlightTimelineDescription =
-      "This is the spotlighted work. It is very special";
+      "Femme au Beret Orange was painted in 1937, just before Picasso’s more political turn with lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.";
   }
 
   return (
     <div>
-      <p>{spotlightTimelineDescription}</p>
+      <p
+        className={
+          spotlightTimelineDescription === ""
+            ? "timeline-description-null"
+            : "timeline-description"
+        }
+      >
+        {spotlightTimelineDescription}
+      </p>
     </div>
   );
 }

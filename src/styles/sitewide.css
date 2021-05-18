@@ -12,6 +12,9 @@ nav .nav-container {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 nav .nav-container .home-button {
@@ -28,7 +31,7 @@ nav .nav-container .right-buttons {
 }
 
 nav .nav-container .right-buttons .profile-button {
-  margin-left: 1.3em;
+  margin-left: 1.6em;
 }
 
 * {
@@ -73,7 +76,7 @@ button:focus {
 
 .artwork-object .timeline-artwork {
   z-index: 100;
-  margin-top: -2.7em;
+  margin-top: -1em;
   padding: 0 -1.8em;
   width: 80%;
 }
@@ -91,6 +94,26 @@ button:focus {
   text-align: right;
 }
 
+.artwork-object:nth-child(odd) .artwork-date {
+  text-align: right;
+}
+
+.save-and-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5em;
+  width: 80%;
+}
+
+.timeline-description {
+  background-color: #F69F8B;
+  border: #282828 1px solid;
+  width: 90%;
+  padding: 1.2em;
+  margin-top: 2em;
+}
+
 button {
   background-color: rgba(255, 0, 0, 0);
   border: #282828 1px solid;
@@ -103,6 +126,7 @@ button {
 button .symbol {
   background-color: #282828;
   color: #FCDABC;
+  font-size: 1.8rem;
 }
 
 button p {
@@ -126,6 +150,93 @@ button p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.save-button-mini {
+  margin-left: 0.7em;
+}
+
+.save-button-mini .symbol {
+  font-size: 1.1rem;
+}
+
+.dialog {
+  width: 90%;
+  background-color: #F2F0CC;
+  border: #282828 solid 2px;
+  z-index: 99;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.dialog .dialog-scroll {
+  overflow-x: scroll;
+  height: 18em;
+}
+
+.dialog-heading {
+  background-color: #282828;
+  color: #F2F0CC;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.dialog-subheading {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-size: 1.2rem;
+  padding: 0.8em 0;
+  border-top: #282828 solid 2px;
+}
+
+.dialog-item {
+  border-top: #282828 solid 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em;
+}
+
+.dialog-item .dialog-item-text {
+  font-size: 1.5rem;
+}
+
+.dialog-item .symbol {
+  width: 1.7em;
+}
+
+.main-dialog-button {
+  background-color: #F69F8B;
+  border-top: #282828 solid 2px;
+  color: #282828;
+  width: 100%;
+  font-size: 1.8rem;
+  line-height: 110%;
+  padding: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-dialog-button p {
+  text-align: center;
+  padding: 0;
 }
 
 body {
@@ -146,6 +257,10 @@ body h2 {
   padding: 0.5em 0;
 }
 
+body p {
+  line-height: 150%;
+}
+
 body .caps-headline {
   text-transform: uppercase;
   font-size: 2.5rem;
@@ -158,6 +273,9 @@ body .caps-headline-light {
   line-height: 110%;
   font-weight: 100;
   text-align: left;
+  padding-left: 1em;
+  padding-top: 1.5em;
+  letter-spacing: 1.3px;
 }
 
 body .small-heading {
@@ -168,7 +286,8 @@ body .small-heading {
 
 body .caption {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 body .text-content {

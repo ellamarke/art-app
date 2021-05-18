@@ -7,6 +7,7 @@ button {
     .symbol {
         background-color: $black;
         color: $pale-rose;
+        font-size: 1.8rem;
     }
 
     p {
@@ -27,5 +28,13 @@ button {
 .button-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.save-button-mini {
+    margin-left: 0.7em;
+    .symbol {
+        font-size: 1.1rem;
+    }
 }
 

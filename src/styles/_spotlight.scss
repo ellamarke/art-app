@@ -9,7 +9,7 @@
 
     .timeline-artwork {
         z-index: 100;
-        margin-top: -2.7em;
+        margin-top: -1em;
         padding: 0 -1.8em;
         width: 80%;
     }
@@ -20,8 +20,26 @@
 }
 
 
-.artwork-object:nth-child(even) .timeline-artwork{
+.artwork-object:nth-child(even) .timeline-artwork {
    align-self: right;
    justify-self: right;
    text-align: right;
+}
+
+.artwork-object:nth-child(odd) .artwork-date {
+    text-align: right;
+}
+
+.save-and-caption {
+    display: flex;
+    padding: 0.5em;
+    width: 80%;
+}
+
+.timeline-description {
+    background-color: $peach;
+    border: $black 1px solid;
+    width: 90%;
+    padding: 1.2em;
+    margin-top: 2em;
 }

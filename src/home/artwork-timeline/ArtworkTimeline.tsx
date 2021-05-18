@@ -1,8 +1,8 @@
 import React from "react";
 import { picassoTimeline } from "../../reference/AllArtworks";
-import SaveButton from "../../shared/buttons/SaveButton";
 import SpotlightTimelineDescription from "./SpotlightTimelineDescription";
-import { Parallax } from "react-scroll-parallax";
+/* import { Parallax } from "react-scroll-parallax"; */
+import SaveButtonMini from "../../shared/buttons/SaveButtonMini";
 
 function ArtworkTimeline() {
   return (
@@ -11,16 +11,18 @@ function ArtworkTimeline() {
       {picassoTimeline.map((artwork) => {
         return (
           <div className="artwork-object" key={artwork.id}>
-            <Parallax className="date-parallax" y={[-20, 20]} tagOuter="figure">
-              <p className="artwork-date">{artwork.date}</p>
-            </Parallax>
+            {/*             <Parallax className="date-parallax" y={[-20, 20]} tagOuter="figure"> */}
+            <p className="artwork-date">{artwork.date}</p>
+            {/*             </Parallax> */}
             <img
               src={artwork.imgSrc}
               alt={artwork.artworkName}
               className="timeline-artwork"
             />
-            <p className="caption">{artwork.artworkName}</p>
-            <SaveButton artworkID={artwork.id} />
+            <div className="save-and-caption">
+              <p className="caption">{artwork.artworkName}</p>
+              <SaveButtonMini artworkID={artwork.id} />
+            </div>
             <SpotlightTimelineDescription currentArtwork={artwork} />
           </div>
         );

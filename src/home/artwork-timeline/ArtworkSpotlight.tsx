@@ -52,14 +52,19 @@ function ArtworkSpotlight({
     <div className="artwork-spotlight">
       <h2>artwork spotlight</h2>
       <img src={imgSrc} alt={artworkName} />
-      <SaveButton artworkID={id} />
-      <div className="artwork-heading">
-        <h3 className="caps-headline standard-margin-top">{artworkName}</h3>
-        <p onClick={() => goToArtistPage(artistName)} className="small-heading">
-          {artistName}, {date}
-        </p>
+      <div className="text-content">
+        <SaveButton artworkID={id} />
+        <div className="artwork-heading">
+          <h3 className="caps-headline standard-margin-top">{artworkName}</h3>
+          <p
+            onClick={() => goToArtistPage(artistName)}
+            className="small-heading"
+          >
+            {artistName}, {date}
+          </p>
+        </div>
+        <p>{description}</p>
       </div>
-      <p>{description}</p>
       <div className="button-container">
         <button onClick={handleSeeMore} className="peach-button">
           {seeMore ? "see less" : "see more"}

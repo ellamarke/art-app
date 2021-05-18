@@ -55,23 +55,33 @@ function GalleryDialog({
 
   let galleryDialog: JSX.Element | null = (
     <div className="dialog">
-      <h2>Save to gallery</h2>
-      <h3>Your top galleries</h3>
-      <ul></ul>
-      <h3>All galleries</h3>
-      <ul>
-        {savedGalleries.sort(sortAlphabetically).map((gallery) => {
-          return (
-            <li
-              onClick={(event) => onClick(artworkID, gallery.id)}
-              key={artworkID}
-            >
-              {gallery.name}
-            </li>
-          );
-        })}
-      </ul>
-      <button onClick={newGallery}>Create new gallery</button>
+      <h2 className="dialog-heading">save to gallery</h2>
+      <div className="dialog-scroll">
+        <h3 className="dialog-subheading">Your top galleries</h3>
+        <ul></ul>
+        <h3 className="dialog-subheading">All galleries</h3>
+        <ul>
+          {savedGalleries.sort(sortAlphabetically).map((gallery) => {
+            return (
+              <li
+                onClick={(event) => onClick(artworkID, gallery.id)}
+                key={artworkID}
+                className="dialog-item"
+              >
+                <p className="dialog-item-text">{gallery.name}</p>
+                <img
+                  src="img/black-cross.svg"
+                  alt="save button"
+                  className="symbol"
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <button onClick={newGallery} className="main-dialog-button">
+        <p> Create new gallery</p>
+      </button>
       <button onClick={(event) => setIsOpen(false)}>Close</button>
     </div>
   );
