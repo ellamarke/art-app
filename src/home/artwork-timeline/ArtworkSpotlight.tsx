@@ -49,7 +49,7 @@ function ArtworkSpotlight({
     }
   }
   return (
-    <div className="artwork-spotlight">
+    <div className="artwork-spotlight section">
       <h2>artwork spotlight</h2>
       <img src={imgSrc} alt={artworkName} />
       <div className="text-content">

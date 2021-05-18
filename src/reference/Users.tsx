@@ -32,7 +32,7 @@ export const blackRadicalArt: ArtworkDetailsType[] = [
     date: 2005,
     imgSrc: "img/black-radical-art/nikkis-place.jpeg",
     id: "bra-1",
-    spotlightPicture: false,
+    spotlightPicture: true,
   },
   {
     artworkName: "Guarded Conditions",
@@ -40,7 +40,7 @@ export const blackRadicalArt: ArtworkDetailsType[] = [
     date: 1989,
     imgSrc: "img/black-radical-art/guarded-conditions.jpeg",
     id: "bra-2",
-    spotlightPicture: false,
+    spotlightPicture: true,
   },
   {
     artworkName: "We Shall Survive Without A Doubt",
@@ -56,7 +56,7 @@ export const blackRadicalArt: ArtworkDetailsType[] = [
     date: 1974,
     imgSrc: "img/barkley-hendricks/whats-going-on.jpeg",
     id: "bra-4",
-    spotlightPicture: true,
+    spotlightPicture: false,
   },
   {
     artworkName: "05. Art Is. . . (Girlfriends Times Two)",
@@ -72,7 +72,7 @@ export const blackRadicalArt: ArtworkDetailsType[] = [
     date: 1973,
     imgSrc: "img/black-radical-art/liberation-of-aunt-jemima.jpg",
     id: "bra-6",
-    spotlightPicture: true,
+    spotlightPicture: false,
   },
   {
     artworkName: "Committee to Defend the Black Panthers",

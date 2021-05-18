@@ -37,25 +37,28 @@ function TrendingGallery({
   }
 
   return (
-    <div className="trending-gallery" onClick={goToGallery}>
-      <h2>Trending gallery</h2>
-      <h3>{userGallery.galleryName}</h3>
-      <h4>{userGallery.username}</h4>
-      <div className="trending-gallery-grid">
-        {userGallery.gallery
-          .filter((artwork) => {
-            return artwork.spotlightPicture;
-          })
-          .map((artwork) => {
-            return (
-              <img
-                className="artwork"
-                key={artwork.id}
-                src={artwork.imgSrc}
-                alt={artwork.artworkName}
-              />
-            );
-          })}
+    <div className="trending-gallery section" onClick={goToGallery}>
+      <h2>trending gallery</h2>
+      <div className="card">
+        <img src="img/black-arrow.svg" alt="" className="arrow" />
+        <h3 className="card-heading">{userGallery.galleryName}</h3>
+        <div className="trending-gallery-grid">
+          {userGallery.gallery
+            .filter((artwork) => {
+              return artwork.spotlightPicture;
+            })
+            .map((artwork) => {
+              return (
+                <img
+                  className="artwork"
+                  key={artwork.id}
+                  src={artwork.imgSrc}
+                  alt={artwork.artworkName}
+                />
+              );
+            })}
+        </div>
+        <h4 className="username">{userGallery.username}</h4>
       </div>
     </div>
   );
