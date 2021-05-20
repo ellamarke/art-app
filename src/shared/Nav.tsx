@@ -12,7 +12,7 @@ function Nav() {
             <li>explore</li>
           </Link>
           <Link to="/profile" className="profile-button">
-            <li>my galleries</li>
+            <li>my &nbsp;galleries</li>
           </Link>
         </div>
       </ul>

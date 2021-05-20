@@ -31,7 +31,7 @@ nav .nav-container .right-buttons {
 }
 
 nav .nav-container .right-buttons .profile-button {
-  margin-left: 1.6em;
+  margin-left: 1.8em;
 }
 
 * {
@@ -163,6 +163,28 @@ button p {
   font-size: 1.1rem;
 }
 
+.visit-galleries-button {
+  background-color: #F69F8B;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.5em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em 1.5em;
+  border-radius: 1.5em;
+}
+
+.visit-galleries-button .symbol {
+  width: 1.8em;
+}
+
+.simple-button-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .dialog {
   width: 90%;
   background-color: #F2F0CC;
@@ -185,6 +207,7 @@ button p {
   color: #F2F0CC;
   font-size: 2rem;
   letter-spacing: 1px;
+  padding: 0.3em 0;
 }
 
 .dialog-subheading {
@@ -205,6 +228,13 @@ button p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1em;
+  /*     .img-container::before {
+        content: "";
+        border-left: $black 2px solid;
+        height: 4.3em;
+        margin: -1em;
+        padding-right: 1.4em;
+    } */
 }
 
 .dialog-item .dialog-item-text {
@@ -239,12 +269,21 @@ button p {
   padding: 0;
 }
 
+/*   .dialog-item-table {
+    border-collapse:collapse;
+    border-spacing:0;
+
+    .img-container {
+        border-left: $black solid 2px;
+        height: 100%;
+        text-align:right;vertical-align:top
+    }
+  } */
 .trending-gallery {
   margin-top: 1em;
 }
 
 .card {
-  background-color: #F69F8B;
   margin: 1.5em;
   border-radius: 1em;
   padding: 1.5em;
@@ -279,6 +318,14 @@ button p {
   font-weight: 400;
   padding-top: 1em;
   border-top: solid 1.5px #282828;
+}
+
+.trending-galleries:nth-child(even) .card {
+  background-color: #F69F8B;
+}
+
+.trending-galleries:nth-child(odd) .card {
+  background-color: #FCDABC;
 }
 
 body {

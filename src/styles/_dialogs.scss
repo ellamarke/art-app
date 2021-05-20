@@ -20,6 +20,7 @@
     color: $yellow;
     font-size: 2rem;
     letter-spacing: 1px;
+    padding: 0.3em 0;
   }
 
   .dialog-subheading {
@@ -41,9 +42,18 @@
         font-size: 1.5rem;
     }
 
+/*     .img-container::before {
+        content: "";
+        border-left: $black 2px solid;
+        height: 4.3em;
+        margin: -1em;
+        padding-right: 1.4em;
+    } */
+
       .symbol {
           width: 1.7em;
       }
+
   }
 
   .main-dialog-button {
@@ -62,3 +72,14 @@
             padding: 0;
         }
   }
+
+/*   .dialog-item-table {
+    border-collapse:collapse;
+    border-spacing:0;
+
+    .img-container {
+        border-left: $black solid 2px;
+        height: 100%;
+        text-align:right;vertical-align:top
+    }
+  } */

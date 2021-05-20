@@ -1,6 +1,7 @@
 import { Gallery, State } from "../../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import { saveArtwork } from "../../store/actions";
+import DetectClickOutside from "./DetectClickOutside";
 
 type Props = PropsFromRedux & {
   isOpen: boolean;
@@ -32,6 +33,10 @@ function GalleryDialog({
   artworkID,
   saveArtwork,
 }: Props) {
+  const { ref } = DetectClickOutside<HTMLDivElement>(() => {
+    setIsOpen(false);
+  });
+
   const onClick = (artworkID: string, galleryId: string) => {
     console.log("clicked saved");
     saveArtwork(artworkID, galleryId);
@@ -61,19 +66,21 @@ function GalleryDialog({
         <ul></ul>
         <h3 className="dialog-subheading">All galleries</h3>
         <ul>
-          {savedGalleries.sort(sortAlphabetically).map((gallery) => {
+          {savedGalleries.sort(sortAlphabetically).map((gallery, index) => {
             return (
               <li
                 onClick={(event) => onClick(artworkID, gallery.id)}
-                key={artworkID}
+                key={index}
                 className="dialog-item"
               >
                 <p className="dialog-item-text">{gallery.name}</p>
-                <img
-                  src="img/black-cross.svg"
-                  alt="save button"
-                  className="symbol"
-                />
+                <div className="img-container">
+                  <img
+                    src="img/black-cross.svg"
+                    alt="save button"
+                    className="symbol"
+                  />
+                </div>
               </li>
             );
           })}
@@ -82,7 +89,6 @@ function GalleryDialog({
       <button onClick={newGallery} className="main-dialog-button">
         <p> Create new gallery</p>
       </button>
-      <button onClick={(event) => setIsOpen(false)}>Close</button>
     </div>
   );
 
@@ -90,7 +96,7 @@ function GalleryDialog({
     galleryDialog = null;
   }
 
-  return <div>{galleryDialog}</div>;
+  return <div ref={ref}>{galleryDialog}</div>;
 }
 
 export default connector(GalleryDialog);

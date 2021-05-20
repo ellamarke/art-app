@@ -3,7 +3,6 @@
 }
 
 .card {
-    background-color: $peach;
     margin: 1.5em;
     border-radius: 1em;
     padding: 1.5em;
@@ -35,3 +34,11 @@
         border-top: solid 1.5px $black;
     }
 }
+
+.trending-galleries:nth-child(even) .card {
+    background-color: $peach;
+ }
+
+ .trending-galleries:nth-child(odd) .card {
+    background-color: $pale-rose;
+ }
