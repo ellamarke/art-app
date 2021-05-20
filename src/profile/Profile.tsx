@@ -34,7 +34,7 @@ type GalleryProps = {
 function Profile({ artworks, savedGalleries }: Props) {
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>My galleries</h1>
       {savedGalleries.map((gallery) => {
         return (
           <div key={gallery.id}>

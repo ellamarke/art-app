@@ -42,16 +42,22 @@ function ChangeGalleryNameDialog({
 
   let changeGalleryNameDialog: JSX.Element | null = (
     <div className="dialog">
-      <h2>change gallery name</h2>
-      <h3>New Name</h3>
+      <h2 className="dialog-heading small-dialog-heading">
+        change gallery name
+      </h2>
+      <h3 className="dialog-subheading">New Name</h3>
       <input
         type="text"
         placeholder=""
         value={newGalleryName}
         onChange={handleChangeGalleryName}
+        className="dialog-input"
       />
-      <button onClick={(event) => handleUpdateGalleryName(newGalleryName)}>
-        Update gallery name
+      <button
+        onClick={(event) => handleUpdateGalleryName(newGalleryName)}
+        className="main-dialog-button"
+      >
+        <p>Update gallery name</p>
       </button>
     </div>
   );

@@ -20,7 +20,15 @@
     color: $yellow;
     font-size: 2rem;
     letter-spacing: 1px;
-    padding: 0.3em 0;
+    padding: 0.3
+  }
+
+  .small-dialog-heading {
+      font-size: 1.75rem;
+  }
+
+  .smallest-dialog-heading {
+      font-size: 1.45rem;
   }
 
   .dialog-subheading {
@@ -58,6 +66,7 @@
 
   .main-dialog-button {
         background-color: $peach;
+        border: none;
         border-top: $black solid 2px;
         color: $black;
         width: 100%;
@@ -83,3 +92,24 @@
         text-align:right;vertical-align:top
     }
   } */
+
+  .dialog-input {
+    font-size: 1.5rem;
+    color: $black;
+    border: none;
+    border-top: $black solid 2px;
+    background-color: $yellow;
+    padding: 0.5em 1em;
+    width: 100%;
+  }
+
+  ::-webkit-input-placeholder {
+    color: rgba($color: #282828, $alpha: 0.4);
+    font-family: 'Manrope', sans-serif;
+  }
+
+
+  .text-area {
+      height: 8em;
+      font-family: 'Manrope', sans-serif;
+  }

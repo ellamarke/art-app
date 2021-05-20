@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { createGallery, saveArtwork } from "../../store/actions";
 import { State } from "../../store/types";
+import DetectClickOutside from "./DetectClickOutside";
 
 type Props = PropsFromRedux & {
   newGalleryDialogIsOpen: boolean;
@@ -30,6 +31,9 @@ function CreateGalleryDialog({
   createGallery,
   savedGalleries,
 }: Props) {
+  const { ref } = DetectClickOutside<HTMLDivElement>(() => {
+    setNewGalleryDialogIsOpen(false);
+  });
   const [searchTerm, setSearchTerm] = useState("");
   const [newGallery, setNewGallery] = useState(false);
 
@@ -68,19 +72,20 @@ function CreateGalleryDialog({
 
   let newGalleryDialog: JSX.Element | null = (
     <div className="dialog">
-      <h2>Create new gallery</h2>
-      <h3>Name</h3>
+      <h2 className="dialog-heading">Create new gallery</h2>
+      <h3 className="dialog-subheading">Name</h3>
       <input
         type="text"
-        placeholder="E.g. French Art, Cool Paintings"
+        placeholder="E.g. 'Modernist Paintings'"
         value={searchTerm}
         onChange={changeSearchTerm}
+        className="dialog-input"
       />
-      <button onClick={(event) => handleCreateGallery(searchTerm)}>
-        Create new gallery
-      </button>
-      <button onClick={(event) => setNewGalleryDialogIsOpen(false)}>
-        Close
+      <button
+        onClick={(event) => handleCreateGallery(searchTerm)}
+        className="main-dialog-button"
+      >
+        <p>Create new gallery</p>
       </button>
     </div>
   );
@@ -89,7 +94,7 @@ function CreateGalleryDialog({
     newGalleryDialog = null;
   }
 
-  return <div>{newGalleryDialog}</div>;
+  return <div ref={ref}>{newGalleryDialog}</div>;
 }
 
 export default connector(CreateGalleryDialog);

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { addGalleryDescription } from "../../store/actions";
 import { State } from "../../store/types";
+import DetectClickOutside from "./DetectClickOutside";
 
 type Props = PropsFromRedux & {
   isOpen: boolean;
@@ -27,10 +28,15 @@ function AddGalleryDescriptionDialog({
   galleryId,
   addGalleryDescription,
 }: Props) {
+  const { ref } = DetectClickOutside<HTMLDivElement>(() => {
+    setIsOpen(false);
+  });
   const [galleryDescription, setGalleryDescription] = useState("");
 
   const changeGalleryDescription = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setGalleryDescription(event.target.value);
   };
@@ -42,17 +48,21 @@ function AddGalleryDescriptionDialog({
 
   let newGalleryDescriptionDialog: JSX.Element | null = (
     <div className="dialog">
-      <h2>Add a gallery description</h2>
-      <input
-        type="text"
-        placeholder="E.g. This is my gallery of French Art. It includes artists from the 16th to 20th centuries"
+      <h2 className="dialog-heading smallest-dialog-heading">
+        Add a gallery description
+      </h2>
+      <textarea
+        placeholder="E.g. 'This is my gallery of French Art. It includes artists from the 16th to 20th centuries'"
         value={galleryDescription}
         onChange={changeGalleryDescription}
+        className="dialog-input text-area"
       />
-      <button onClick={(event) => handleAddDescription(galleryDescription)}>
-        Add description
+      <button
+        onClick={(event) => handleAddDescription(galleryDescription)}
+        className="main-dialog-button"
+      >
+        <p>Add description</p>
       </button>
-      <button onClick={(event) => setIsOpen(false)}>Close</button>
     </div>
   );
 
@@ -60,7 +70,7 @@ function AddGalleryDescriptionDialog({
     newGalleryDescriptionDialog = null;
   }
 
-  return <div>{newGalleryDescriptionDialog}</div>;
+  return <div ref={ref}>{newGalleryDescriptionDialog}</div>;
 }
 
 export default connector(AddGalleryDescriptionDialog);

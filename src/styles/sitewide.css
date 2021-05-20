@@ -207,7 +207,15 @@ button p {
   color: #F2F0CC;
   font-size: 2rem;
   letter-spacing: 1px;
-  padding: 0.3em 0;
+  padding: 0.3;
+}
+
+.small-dialog-heading {
+  font-size: 1.75rem;
+}
+
+.smallest-dialog-heading {
+  font-size: 1.45rem;
 }
 
 .dialog-subheading {
@@ -247,6 +255,7 @@ button p {
 
 .main-dialog-button {
   background-color: #F69F8B;
+  border: none;
   border-top: #282828 solid 2px;
   color: #282828;
   width: 100%;
@@ -279,6 +288,26 @@ button p {
         text-align:right;vertical-align:top
     }
   } */
+.dialog-input {
+  font-size: 1.5rem;
+  color: #282828;
+  border: none;
+  border-top: #282828 solid 2px;
+  background-color: #F2F0CC;
+  padding: 0.5em 1em;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(40, 40, 40, 0.4);
+  font-family: 'Manrope', sans-serif;
+}
+
+.text-area {
+  height: 8em;
+  font-family: 'Manrope', sans-serif;
+}
+
 .trending-gallery {
   margin-top: 1em;
 }
