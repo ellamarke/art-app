@@ -5,6 +5,7 @@
 @import "./buttons";
 @import "./dialogs";
 @import "./cards";
+@import "./filters";
 
 body {
     font-family: 'Manrope', sans-serif;
@@ -60,8 +61,16 @@ body {
         text-transform: uppercase;
         font-size: 0.95rem;
         letter-spacing: 0.5px;
+        line-height: 120%;
     }
 
+    .intro-paragraph {
+        padding: 0.5em 1em;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 130%;
+    }
 
     .text-content {
         @include standardPadding;

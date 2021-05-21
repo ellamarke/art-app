@@ -1,0 +1,42 @@
+.filter-card {
+    background-color: $yellow;
+
+    .date-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1em;
+    }
+
+    .filter-button {
+        font-family: 'Manrope', sans-serif;
+        color: $black;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.3em 0.7em;
+        margin: 0.3em;
+    }
+
+    .true-button {
+        background-color: $peach;
+    }
+
+    .false-button {
+        background-color: none;
+    }
+}
+
+.filtered-artwork-container {
+    width: 87%;
+
+    .caption {
+        margin: 0;
+        margin-left: 1.7em;
+    }
+}
+
+.filtered-artwork {
+    margin: 1.5em;
+    margin-bottom: 0.2em;
+    border-radius: 1em;
+}

@@ -1,3 +1,16 @@
+.text-centre {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+}
+
 nav {
   background-color: #282828;
   color: #FCDABC;
@@ -349,12 +362,67 @@ button p {
   border-top: solid 1.5px #282828;
 }
 
+.card .card-text {
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 130%;
+  margin-top: 0.3em;
+}
+
 .trending-galleries:nth-child(even) .card {
   background-color: #F69F8B;
 }
 
 .trending-galleries:nth-child(odd) .card {
   background-color: #FCDABC;
+}
+
+.filter-card {
+  background-color: #F2F0CC;
+}
+
+.filter-card .date-filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1em;
+}
+
+.filter-card .filter-button {
+  font-family: 'Manrope', sans-serif;
+  color: #282828;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.3em 0.7em;
+  margin: 0.3em;
+}
+
+.filter-card .true-button {
+  background-color: #F69F8B;
+}
+
+.filter-card .false-button {
+  background-color: none;
+}
+
+.filtered-artwork-container {
+  width: 87%;
+}
+
+.filtered-artwork-container .caption {
+  margin: 0;
+  margin-left: 1.7em;
+}
+
+.filtered-artwork {
+  margin: 1.5em;
+  margin-bottom: 0.2em;
+  border-radius: 1em;
 }
 
 body {
@@ -415,6 +483,15 @@ body .caption {
   text-transform: uppercase;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
+  line-height: 120%;
+}
+
+body .intro-paragraph {
+  padding: 0.5em 1em;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 body .text-content {

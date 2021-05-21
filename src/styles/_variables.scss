@@ -16,3 +16,16 @@ $pale-rose: #FCDABC;
 @mixin standardMarginTop {
     margin-top: 1em;
 }
+
+.text-centre {
+    text-align: center;
+}
+
+.margin-top {
+    margin-top: 1em;
+}
+
+.no-margin {
+    margin: 0;
+    padding: 0;
+}

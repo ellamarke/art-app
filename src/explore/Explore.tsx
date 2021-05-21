@@ -56,28 +56,37 @@ function Explore({ setDateFilter, dateFilters }: Props) {
   ];
   return (
     <div>
-      <h1>Explore</h1>
-      <h2>Filter art to discover more</h2>
-      <h3>Time period</h3>
-      <p>I want to see art created during the:</p>
-      <div className="date-filters">
-        {years.map((year, index) => (
-          <MakeButton
-            date={year}
-            dateFilters={dateFilters}
-            setDateFilter={setDateFilter}
-            key={index}
-          />
-        ))}
+      <h1 className="caps-headline text-centre margin-top">Filter art</h1>
+      <p className="intro-paragraph">
+        Discover new artwork from the best artists in the world.
+      </p>
+      <div className="card filter-card">
+        <h2 className="no-margin">Time period</h2>
+        <p className="card-text">I want to see art created during the:</p>
+        <div className="date-filters">
+          {years.map((year, index) => (
+            <MakeButton
+              date={year}
+              dateFilters={dateFilters}
+              setDateFilter={setDateFilter}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
       {allArtworks
         .filter(({ date }) => isYearValidForAnyFilter(date))
         .map((artwork, index) => {
           return (
-            <div className="art-in-grid" key={index}>
-              <img src={artwork.imgSrc} alt={artwork.artworkName} />
-              <p>{artwork.artworkName}</p>
-              <p>{artwork.date}</p>
+            <div className="filtered-artwork-container" key={index}>
+              <img
+                src={artwork.imgSrc}
+                alt={artwork.artworkName}
+                className="filtered-artwork"
+              />
+              <p className="caption">
+                {artwork.artworkName}, {artwork.date}
+              </p>
             </div>
           );
         })}
@@ -102,7 +111,11 @@ function MakeButton({ date, dateFilters, setDateFilter }: buttonProps) {
   return (
     <button
       onClick={() => setDateFilter(date, !dateFilters[date])}
-      className={dateFilters[date] ? "true-button" : "false-button"}
+      className={
+        dateFilters[date]
+          ? "true-button filter-button"
+          : "false-button filter-button"
+      }
     >
       {date}s
     </button>
