@@ -2,6 +2,7 @@ import { connect, ConnectedProps } from "react-redux";
 import { changeActiveArtwork } from "../store/actions";
 import { allArtworks } from "../reference/AllArtworks";
 import { State } from "../store/types";
+import SaveButton from "../shared/buttons/SaveButton";
 
 const mapStateToProps = (state: State) => ({
   activeArtwork: state.activeArtwork,
@@ -30,11 +31,16 @@ function ArtworkPage({ activeArtwork }: Props) {
     );
   }
   return (
-    <div>
+    <div className="artwork-page">
       <img src={currentArtwork.imgSrc} alt={currentArtwork.artworkName} />
-      <h2>{currentArtwork.artworkName}</h2>
-      <h3>{currentArtwork.date}</h3>
-      <p>{currentArtwork.description}</p>
+      <div className="text-content">
+        <SaveButton artworkID={currentArtwork.id} />
+        <h2 className="caps-headline">{currentArtwork.artworkName}</h2>
+        <h3 className="small-heading">
+          {currentArtwork.artistName}, {currentArtwork.date}
+        </h3>
+        <p>{currentArtwork.description}</p>
+      </div>
     </div>
   );
 }

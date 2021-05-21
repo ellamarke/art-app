@@ -379,6 +379,7 @@ button p {
 
 .filter-card {
   background-color: #F2F0CC;
+  border: 2px solid #282828;
 }
 
 .filter-card .date-filters {
@@ -423,6 +424,20 @@ button p {
   margin: 1.5em;
   margin-bottom: 0.2em;
   border-radius: 1em;
+}
+
+.artwork-page {
+  min-height: 100vh;
+  padding-bottom: 1em;
+}
+
+.artwork-page .caps-headline {
+  text-align: left;
+  padding-bottom: none;
+}
+
+.artwork-page .small-heading {
+  padding-top: 0;
 }
 
 body {
