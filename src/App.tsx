@@ -14,6 +14,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { ParallaxProvider } from "react-scroll-parallax";
+import ArtworkPage from "./explore/ArtworkPage";
 
 const persistConfig = {
   key: "root",
@@ -42,6 +43,7 @@ function App() {
               <Route path="/profile" component={Profile} />
               <Route path="/gallery" component={Gallery} />
               <Route path="/artist-page" component={ArtistPage} />
+              <Route path="/artwork-page" component={ArtworkPage} />
             </Switch>
           </PersistGate>
         </ParallaxProvider>

@@ -13,6 +13,7 @@ import {
   ChangeActiveGalleryIdAction,
   ChangeActiveArtistAction,
   SetDateFilterAction,
+  ChangeActiveArtworkAction,
 } from "./types";
 
 const initialState: State = {
@@ -20,6 +21,7 @@ const initialState: State = {
   savedGalleries: [],
   activeGalleryId: null,
   activeArtist: null,
+  activeArtwork: null,
   dateFilters: {
     "1930": true,
     "1940": true,
@@ -60,6 +62,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.SET_DATE_FILTER:
       return setDateFilter(state, action);
+
+    case ActionTypes.CHANGE_ACTIVE_ARTWORK:
+      return changeActiveArtwork(state, action);
 
     default:
       return state;
@@ -190,6 +195,17 @@ const setDateFilter = (state: State, action: SetDateFilterAction): State => {
       ...state.dateFilters,
       [action.date]: action.enabled,
     },
+  };
+};
+
+const changeActiveArtwork = (
+  state: State,
+  action: ChangeActiveArtworkAction
+): State => {
+  const newActiveArtwork = action.artworkName;
+  return {
+    ...state,
+    activeArtwork: newActiveArtwork,
   };
 };
 

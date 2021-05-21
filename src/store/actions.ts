@@ -54,3 +54,8 @@ export const setDateFilter = (date: keyof DateFilter, enabled: boolean) => ({
   date,
   enabled,
 });
+
+export const changeActiveArtwork = (artworkName: string): Action => ({
+  type: ActionTypes.CHANGE_ACTIVE_ARTWORK,
+  artworkName,
+});

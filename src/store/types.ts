@@ -8,6 +8,7 @@ export interface State {
   savedGalleries: Gallery[];
   activeGalleryId: string | null;
   activeArtist: string | null;
+  activeArtwork: string | null;
   dateFilters: DateFilter;
 }
 
@@ -38,6 +39,7 @@ export enum ActionTypes {
   CHANGE_ACTIVE_GALLERY = "CHANGE_ACTIVE_GALLERY",
   CHANGE_ACTIVE_ARTIST = "CHANGE_ACTIVE_ARTIST",
   SET_DATE_FILTER = "SET_DATE_FILTER",
+  CHANGE_ACTIVE_ARTWORK = "CHANGE_ACTIVE_ARTWORK",
   /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
@@ -90,6 +92,11 @@ export interface SetDateFilterAction {
   enabled: boolean;
 }
 
+export interface ChangeActiveArtworkAction {
+  type: typeof ActionTypes.CHANGE_ACTIVE_ARTWORK;
+  artworkName: string;
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
@@ -99,4 +106,5 @@ export type Action =
   | AddGalleryDescriptionAction
   | ChangeActiveGalleryIdAction
   | ChangeActiveArtistAction
-  | SetDateFilterAction;
+  | SetDateFilterAction
+  | ChangeActiveArtworkAction;

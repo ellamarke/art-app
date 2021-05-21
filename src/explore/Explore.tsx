@@ -2,13 +2,17 @@ import { connect, ConnectedProps } from "react-redux";
 import { ActionTypes, DateFilter, State } from "../store/types";
 import { setDateFilter } from "../store/actions";
 import { allArtworks } from "../reference/AllArtworks";
+import { changeActiveArtwork } from "../store/actions";
+import { useHistory } from "react-router-dom";
 
 const mapStateToProps = (state: State) => ({
   dateFilters: state.dateFilters,
+  activeArtwork: state.activeArtwork,
 });
 
 const mapDispatchToProps = {
   setDateFilter,
+  changeActiveArtwork,
 };
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
@@ -17,7 +21,7 @@ type Props = PropsFromRedux;
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
-function Explore({ setDateFilter, dateFilters }: Props) {
+function Explore({ setDateFilter, dateFilters, changeActiveArtwork }: Props) {
   // [["1970", true], ["1980", false]]
 
   // [{key: "1970", value: true}]
@@ -54,6 +58,16 @@ function Explore({ setDateFilter, dateFilters }: Props) {
     "1990",
     "2000",
   ];
+
+  const history = useHistory();
+  function goToArtworkPage(artworkName: string) {
+    console.log("I've been clicked!");
+    changeActiveArtwork(artworkName);
+    if (typeof artworkName === "string") {
+      history.push("/artwork-page");
+    }
+  }
+
   return (
     <div>
       <h1 className="caps-headline text-centre margin-top">Filter art</h1>
@@ -83,6 +97,7 @@ function Explore({ setDateFilter, dateFilters }: Props) {
                 src={artwork.imgSrc}
                 alt={artwork.artworkName}
                 className="filtered-artwork"
+                onClick={() => goToArtworkPage(artwork.artworkName)}
               />
               <p className="caption">
                 {artwork.artworkName}, {artwork.date}
