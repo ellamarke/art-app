@@ -377,6 +377,15 @@ button p {
   background-color: #FCDABC;
 }
 
+.profile:nth-child(odd) .saved-galleries {
+  background-color: #F69F8B;
+}
+
+.profile:nth-child(even) .saved-galleries {
+  background-color: #F2F0CC;
+  border: solid #282828 1px;
+}
+
 .filter-card {
   background-color: #F2F0CC;
   border: 2px solid #282828;

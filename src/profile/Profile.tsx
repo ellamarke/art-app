@@ -5,14 +5,18 @@ import { allArtworks, ArtworkDetailsType } from "../reference/AllArtworks";
 import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
 import ChangeGalleryNameButton from "../shared/buttons/ChangeGalleryNameButton";
 import AddGalleryDescriptionButton from "../shared/buttons/AddGalleryDescriptionButton";
+import { useHistory } from "react-router-dom";
+import { changeActiveGalleryId } from "../store/actions";
+import { UserGalleryType } from "../reference/UserGalleries";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
   savedGalleries: state.savedGalleries,
+  activeGalleryId: state.activeGalleryId,
 });
 
 const mapDispatchToProps = {
-  //
+  changeActiveGalleryId,
 };
 
 const connector = connect(
@@ -25,27 +29,59 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux & {
   artworks: Artwork[];
   savedGalleries: Gallery[];
+  userGallery: UserGalleryType;
 };
 
 type GalleryProps = {
   artworks: Artwork[];
 };
 
-function Profile({ artworks, savedGalleries }: Props) {
+function Profile({
+  artworks,
+  savedGalleries,
+  changeActiveGalleryId,
+  activeGalleryId,
+}: Props) {
+  const history = useHistory();
+
+  function goToSavedGallery(id: string) {
+    changeActiveGalleryId(id);
+    if (typeof activeGalleryId === "string") {
+      history.push("/gallery-page");
+    }
+
+    console.log("Clicked!");
+  }
   return (
-    <div>
-      <h1>My galleries</h1>
+    <div className="profile">
       {savedGalleries.map((gallery) => {
+        const artworksInGallery = getArtworksInGallery(artworks, gallery);
         return (
-          <div key={gallery.id}>
-            <h2>{gallery.name}</h2>
-            <DeleteGalleryButton galleryName={gallery.name} />
-            <ChangeGalleryNameButton gallery={gallery} />
-            <AddGalleryDescriptionButton galleryId={gallery.id} />
-            <p>{gallery.description}</p>
-            <ArtworksInGallery
-              artworks={getArtworksInGallery(artworks, gallery)}
-            />
+          <div
+            key={gallery.id}
+            className="card saved-galleries"
+            onClick={() => goToSavedGallery(gallery.id)}
+          >
+            <img src="img/black-arrow.svg" alt="arrow" className="arrow" />
+            <h3 className="card-heading">{gallery.name}</h3>
+            <div className="trending-gallery-grid">
+              {artworksInGallery
+                .filter((artwork, index) => {
+                  return index < 4;
+                })
+                .map((artwork) => {
+                  const artworkDetails = getArtwork(artwork.id);
+                  return (
+                    <img
+                      className="artwork"
+                      key={artworkDetails.id}
+                      src={artworkDetails.imgSrc}
+                      alt={artworkDetails.artworkName}
+                    />
+                  );
+                })}
+            </div>
+            <p className="username">{artworksInGallery.length} artworks</p>
           </div>
         );
       })}
@@ -64,9 +100,7 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
   return (
     <div>
       {artworks.map((savedArtwork, index) => {
-        const artwork = allArtworks.find((artwork) => {
-          return artwork.id === savedArtwork.id;
-        }) as ArtworkDetailsType;
+        const artwork = getArtwork(savedArtwork.id);
         return (
           <div key={index}>
             <p>
@@ -81,6 +115,13 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
       })}
     </div>
   );
+}
+
+function getArtwork(id: string): ArtworkDetailsType {
+  const artwork = allArtworks.find((artwork) => {
+    return artwork.id === id;
+  }) as ArtworkDetailsType;
+  return artwork;
 }
 
 export default connector(Profile);

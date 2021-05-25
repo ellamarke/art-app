@@ -49,3 +49,12 @@
  .trending-galleries:nth-child(odd) .card {
     background-color: $pale-rose;
  }
+
+ .profile:nth-child(odd) .saved-galleries {
+    background-color: $peach;
+ }
+
+ .profile:nth-child(even) .saved-galleries {
+    background-color: $yellow;
+    border: solid $black 1px;
+ }

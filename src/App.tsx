@@ -6,6 +6,7 @@ import Profile from "./profile/Profile";
 import Explore from "./explore/Explore";
 import Gallery from "./gallery/Gallery";
 import ArtistPage from "./explore/ArtistPage";
+import GalleryPage from "./explore/GalleryPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import state from "./store/reducer";
@@ -44,6 +45,7 @@ function App() {
               <Route path="/gallery" component={Gallery} />
               <Route path="/artist-page" component={ArtistPage} />
               <Route path="/artwork-page" component={ArtworkPage} />
+              <Route path="/gallery-page" component={GalleryPage} />
             </Switch>
           </PersistGate>
         </ParallaxProvider>
