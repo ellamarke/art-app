@@ -40,7 +40,6 @@ export enum ActionTypes {
   CHANGE_ACTIVE_ARTIST = "CHANGE_ACTIVE_ARTIST",
   SET_DATE_FILTER = "SET_DATE_FILTER",
   CHANGE_ACTIVE_ARTWORK = "CHANGE_ACTIVE_ARTWORK",
-  /* these are variables, you access them with DiscoverActionTypes.xxxxx */
 }
 
 export interface SaveArtworkAction {
