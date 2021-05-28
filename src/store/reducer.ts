@@ -4,7 +4,7 @@ import {
   State,
   ActionTypes,
   SaveArtworkAction,
-  Artwork,
+  ArtworkGalleryLink,
   RemoveArtworkAction,
   CreateGalleryAction,
   RemoveGalleryAction,
@@ -81,10 +81,10 @@ const saveArtwork = (state: State, action: SaveArtworkAction): State => {
   };
 };
 
-const addArtwork = (artworks: Artwork[], artwork: Artwork) => [
-  ...artworks,
-  artwork,
-];
+const addArtwork = (
+  artworks: ArtworkGalleryLink[],
+  artwork: ArtworkGalleryLink
+) => [...artworks, artwork];
 
 const removeArtwork = (state: State, action: RemoveArtworkAction): State => {
   const savedArtworks = state.savedArtworks;

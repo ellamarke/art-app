@@ -1,8 +1,8 @@
-import { ArtworkDetailsType } from "./AllArtworks";
+import { ArtworkDetails } from "../store/types";
 import { blackRadicalArt, NormanRockwellRetrospective } from "./Users";
 
 export type UserGalleryType = {
-  gallery: ArtworkDetailsType[];
+  gallery: ArtworkDetails[];
   galleryName: string;
   username: string;
   id: string;

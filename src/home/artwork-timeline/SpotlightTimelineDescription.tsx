@@ -1,7 +1,7 @@
-import { ArtworkDetailsType } from "../../reference/AllArtworks";
+import { ArtworkDetails } from "../../store/types";
 
 type Props = {
-  currentArtwork: ArtworkDetailsType;
+  currentArtwork: ArtworkDetails;
 };
 function SpotlightTimelineDescription({ currentArtwork }: Props) {
   let spotlightTimelineDescription = "";

@@ -1,4 +1,4 @@
-import { Artwork, Gallery, State } from "../../store/types";
+import { ArtworkGalleryLink, Gallery, State } from "../../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteGalleryButton from "../../shared/buttons/DeleteGalleryButton";
 import ChangeGalleryNameButton from "../../shared/buttons/ChangeGalleryNameButton";
@@ -21,12 +21,12 @@ const connector = connect(
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux & {
-  artworks: Artwork[];
+  artworks: ArtworkGalleryLink[];
   savedGalleries: Gallery[];
 };
 
 type GalleryProps = {
-  artworks: Artwork[];
+  artworks: ArtworkGalleryLink[];
 };
 
 function TopGalleries({ artworks, savedGalleries }: Props) {
@@ -49,9 +49,9 @@ function TopGalleries({ artworks, savedGalleries }: Props) {
 }
 
 function getArtworksInGallery(
-  allArtworks: Artwork[],
+  allArtworks: ArtworkGalleryLink[],
   gallery: Gallery
-): Artwork[] {
+): ArtworkGalleryLink[] {
   return allArtworks.filter((artwork) => gallery.id === artwork.gallery);
 }
 

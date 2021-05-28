@@ -1,10 +1,11 @@
-import { ArtworkDetailsType } from "../reference/AllArtworks";
+import { ArtworkDetails } from "../store/types";
+
 export type ArtistType = {
   name: string;
   dates: string;
   description?: string;
   id: string;
-  artworks: ArtworkDetailsType[];
+  artworks: ArtworkDetails[];
 };
 
 export const allArtists: ArtistType[] = [

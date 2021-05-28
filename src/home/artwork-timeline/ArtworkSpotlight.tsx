@@ -3,9 +3,8 @@ import { connect, ConnectedProps } from "react-redux";
 import { changeActiveArtist } from "../../store/actions";
 import SaveButton from "../../shared/buttons/SaveButton";
 import ArtworkTimeline from "./ArtworkTimeline";
-import { ArtworkDetailsType } from "../../reference/AllArtworks";
 import { useHistory } from "react-router-dom";
-import { State } from "../../store/types";
+import { State, ArtworkDetails } from "../../store/types";
 
 const mapStateToProps = (state: State) => ({
   activeArtist: state.activeArtist,
@@ -17,7 +16,7 @@ const mapDispatchToProps = {
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-type Props = PropsFromRedux & ArtworkDetailsType;
+type Props = PropsFromRedux & ArtworkDetails;
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 

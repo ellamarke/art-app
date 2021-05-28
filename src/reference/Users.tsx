@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
-import { Gallery, Artwork } from "../store/types";
-import { ArtworkDetailsType } from "../reference/AllArtworks";
+import { Gallery, ArtworkGalleryLink } from "../store/types";
+import { ArtworkDetails } from "../store/types";
 
 export type User = {
   username: string;
-  savedArtworks: Artwork[];
+  savedArtworks: ArtworkGalleryLink[];
   savedGalleries: Gallery[];
 };
 
@@ -25,7 +25,7 @@ export const TheMet: User = {
   ],
 };
 
-export const blackRadicalArt: ArtworkDetailsType[] = [
+export const blackRadicalArt: ArtworkDetails[] = [
   {
     artworkName: "Nikki's Place",
     artistName: "Carrie Mae Weem",
@@ -84,7 +84,7 @@ export const blackRadicalArt: ArtworkDetailsType[] = [
   },
 ];
 
-export const NormanRockwellRetrospective: ArtworkDetailsType[] = [
+export const NormanRockwellRetrospective: ArtworkDetails[] = [
   {
     artworkName: "Golden Rule",
     artistName: "Norman Rockwell",
@@ -135,7 +135,7 @@ export const NormanRockwellRetrospective: ArtworkDetailsType[] = [
   },
 ];
 
-export const FeministArt: ArtworkDetailsType[] = [
+export const FeministArt: ArtworkDetails[] = [
   {
     artworkName: "Blue Purple Tilt",
     artistName: "Jenny Holzer",

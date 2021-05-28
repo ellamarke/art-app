@@ -1,9 +1,10 @@
-import { Artwork, Gallery, State } from "../store/types";
+import { ArtworkGalleryLink, Gallery, State } from "../store/types";
 import { changeActiveGalleryId } from "../store/actions";
 import { connect, ConnectedProps } from "react-redux";
 import React from "react";
 import SaveButton from "../shared/buttons/SaveButton";
-import { allArtworks, ArtworkDetailsType } from "../reference/AllArtworks";
+import { allArtworks } from "../reference/AllArtworks";
+import { ArtworkDetails } from "../store/types";
 
 type Props = PropsFromRedux;
 
@@ -61,16 +62,16 @@ function GalleryPage({
 }
 
 function getArtworksInGallery(
-  savedArtworks: Artwork[],
+  savedArtworks: ArtworkGalleryLink[],
   gallery: Gallery
-): Artwork[] {
+): ArtworkGalleryLink[] {
   return savedArtworks.filter((artwork) => gallery.id === artwork.gallery);
 }
 
-function getArtwork(id: string): ArtworkDetailsType {
+function getArtwork(id: string): ArtworkDetails {
   const artwork = allArtworks.find((artwork) => {
     return artwork.id === id;
-  }) as ArtworkDetailsType;
+  }) as ArtworkDetails;
   return artwork;
 }
 

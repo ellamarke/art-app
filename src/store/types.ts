@@ -1,10 +1,20 @@
-export interface Artwork {
+export interface ArtworkGalleryLink {
   id: string;
   gallery: string;
 }
 
+export type ArtworkDetails = {
+  artworkName: string;
+  artistName: string;
+  date: number;
+  imgSrc: string;
+  description?: string;
+  id: string;
+  spotlightPicture: boolean;
+};
+
 export interface State {
-  savedArtworks: Artwork[];
+  savedArtworks: ArtworkGalleryLink[];
   savedGalleries: Gallery[];
   activeGalleryId: string | null;
   activeArtist: string | null;

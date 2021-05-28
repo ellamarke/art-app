@@ -4,17 +4,9 @@ import {
   NormanRockwellRetrospective,
 } from "./Users";
 
-export type ArtworkDetailsType = {
-  artworkName: string;
-  artistName: string;
-  date: number;
-  imgSrc: string;
-  description?: string;
-  id: string;
-  spotlightPicture: boolean;
-};
+import { ArtworkDetails } from "../store/types";
 
-export const picassoTimeline: ArtworkDetailsType[] = [
+export const picassoTimeline: ArtworkDetails[] = [
   {
     artworkName: "Garcon a la pipe",
     artistName: "Pablo Picasso",
@@ -59,7 +51,7 @@ export const picassoTimeline: ArtworkDetailsType[] = [
   },
 ];
 
-export const vanGoghTimeline: ArtworkDetailsType[] = [
+export const vanGoghTimeline: ArtworkDetails[] = [
   {
     artworkName: "Cafe at Night",
     artistName: "Van Gogh",

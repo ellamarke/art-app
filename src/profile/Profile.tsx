@@ -1,13 +1,11 @@
-import { Artwork, Gallery, State } from "../store/types";
+import { ArtworkGalleryLink, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
 import DeleteButton from "../shared/buttons/DeleteButton";
-import { allArtworks, ArtworkDetailsType } from "../reference/AllArtworks";
-import DeleteGalleryButton from "../shared/buttons/DeleteGalleryButton";
-import ChangeGalleryNameButton from "../shared/buttons/ChangeGalleryNameButton";
-import AddGalleryDescriptionButton from "../shared/buttons/AddGalleryDescriptionButton";
+import { allArtworks } from "../reference/AllArtworks";
 import { useHistory } from "react-router-dom";
 import { changeActiveGalleryId } from "../store/actions";
 import { UserGalleryType } from "../reference/UserGalleries";
+import { ArtworkDetails } from "../store/types";
 
 const mapStateToProps = (state: State) => ({
   artworks: state.savedArtworks,
@@ -27,13 +25,13 @@ const connector = connect(
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux & {
-  artworks: Artwork[];
+  artworks: ArtworkGalleryLink[];
   savedGalleries: Gallery[];
   userGallery: UserGalleryType;
 };
 
 type GalleryProps = {
-  artworks: Artwork[];
+  artworks: ArtworkGalleryLink[];
 };
 
 function Profile({
@@ -90,9 +88,9 @@ function Profile({
 }
 
 function getArtworksInGallery(
-  allArtworks: Artwork[],
+  allArtworks: ArtworkGalleryLink[],
   gallery: Gallery
-): Artwork[] {
+): ArtworkGalleryLink[] {
   return allArtworks.filter((artwork) => gallery.id === artwork.gallery);
 }
 
@@ -117,10 +115,10 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
   );
 }
 
-function getArtwork(id: string): ArtworkDetailsType {
+function getArtwork(id: string): ArtworkDetails {
   const artwork = allArtworks.find((artwork) => {
     return artwork.id === id;
-  }) as ArtworkDetailsType;
+  }) as ArtworkDetails;
   return artwork;
 }
 
