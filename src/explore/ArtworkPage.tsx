@@ -3,6 +3,7 @@ import { changeActiveArtwork } from "../store/actions";
 import { allArtworks } from "../reference/AllArtworks";
 import { State } from "../store/types";
 import SaveButton from "../shared/buttons/SaveButton";
+import BackButton from "../shared/buttons/BackButton";
 
 const mapStateToProps = (state: State) => ({
   activeArtwork: state.activeArtwork,
@@ -32,6 +33,7 @@ function ArtworkPage({ activeArtwork }: Props) {
   }
   return (
     <div className="artwork-page">
+      <BackButton />
       <img src={currentArtwork.imgSrc} alt={currentArtwork.artworkName} />
       <div className="text-content">
         <SaveButton artworkID={currentArtwork.id} />

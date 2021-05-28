@@ -55,3 +55,15 @@ button {
     font-size: 1.5rem;
     font-weight: 700;
 }
+
+.back-button-container {
+    background-color: $peach;
+    border-bottom: $black solid 2px;
+
+    .back-arrow {
+        width: 2em;
+        transform: scaleX(-1);
+        margin: 0.4em 0.8em;
+        margin-top: 0.7em;
+    }
+}

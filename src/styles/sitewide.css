@@ -198,6 +198,19 @@ button p {
   font-weight: 700;
 }
 
+.back-button-container {
+  background-color: #F69F8B;
+  border-bottom: #282828 solid 2px;
+}
+
+.back-button-container .back-arrow {
+  width: 2em;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  margin: 0.4em 0.8em;
+  margin-top: 0.7em;
+}
+
 .dialog {
   width: 90%;
   background-color: #F2F0CC;
