@@ -1,6 +1,6 @@
 import { ArtworkGalleryLink, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
-import DeleteButton from "../shared/buttons/DeleteButton";
+import DeleteButton from "../shared/dialogs/DeleteDialog";
 import { allArtworks } from "../reference/AllArtworks";
 import { useHistory } from "react-router-dom";
 import { changeActiveGalleryId } from "../store/actions";
@@ -107,7 +107,6 @@ function ArtworksInGallery({ artworks }: GalleryProps) {
             <p>
               <img src={artwork.imgSrc} alt={artwork.artworkName} />
             </p>
-            <DeleteButton artworkID={artwork.id} />
           </div>
         );
       })}

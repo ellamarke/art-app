@@ -131,6 +131,7 @@ button {
   background-color: rgba(255, 0, 0, 0);
   border: #282828 1px solid;
   font-size: 1.1rem;
+  font-family: 'Manrope', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,6 +141,11 @@ button .symbol {
   background-color: #282828;
   color: #FCDABC;
   font-size: 1.8rem;
+}
+
+button .bin-symbol {
+  width: 1.4em;
+  padding: 0.2em 0.4em;
 }
 
 button p {

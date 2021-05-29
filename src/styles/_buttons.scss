@@ -2,12 +2,18 @@ button {
     background-color: rgba(255, 0, 0, 0);
     border: $black 1px solid;
     font-size: 1.1rem;
+    font-family: 'Manrope', sans-serif;
     display: flex;
 
     .symbol {
         background-color: $black;
         color: $pale-rose;
         font-size: 1.8rem;
+    }
+
+    .bin-symbol {
+        width: 1.4em;
+        padding: 0.2em 0.4em;
     }
 
     p {

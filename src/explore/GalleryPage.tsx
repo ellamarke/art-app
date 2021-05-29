@@ -1,10 +1,11 @@
 import { ArtworkGalleryLink, Gallery, State } from "../store/types";
-import { changeActiveGalleryId } from "../store/actions";
+import { changeActiveGalleryId, removeArtwork } from "../store/actions";
 import { connect, ConnectedProps } from "react-redux";
-import React from "react";
-import SaveButton from "../shared/buttons/SaveButton";
+import React, { useState } from "react";
 import { allArtworks } from "../reference/AllArtworks";
 import { ArtworkDetails } from "../store/types";
+import DeleteDialog from "../shared/dialogs/DeleteDialog";
+import DeleteButton from "../shared/buttons/DeleteButton";
 
 type Props = PropsFromRedux;
 
@@ -16,6 +17,7 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToProps = {
   changeActiveGalleryId,
+  removeArtwork: removeArtwork,
 };
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
@@ -26,7 +28,10 @@ function GalleryPage({
   activeGalleryId,
   savedGalleries,
   savedArtworks,
+  removeArtwork,
 }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const activeGallery = savedGalleries.find((gallery) => {
     return gallery.id === activeGalleryId;
   });
@@ -53,7 +58,7 @@ function GalleryPage({
                 {artwork.artworkName}, {artwork.artistName}
               </h4>
               <img src={artwork.imgSrc} alt={artwork.artworkName} />
-              <SaveButton artworkID={artwork.id} />
+              <DeleteButton artworkID={artwork.id} />
             </div>
           );
         })}
