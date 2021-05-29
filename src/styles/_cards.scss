@@ -50,11 +50,17 @@
     background-color: $pale-rose;
  }
 
- .profile:nth-child(odd) .saved-galleries {
+ .saved-galleries:nth-of-type(1n)  {
     background-color: $peach;
+    border: solid $black 1px;
  }
 
- .profile:nth-child(even) .saved-galleries {
+ .saved-galleries:nth-of-type(2n) {
     background-color: $yellow;
     border: solid $black 1px;
+ }
+
+ .saved-galleries:nth-of-type(3n) {
+    background-color: $black;
+    color: $yellow;
  }

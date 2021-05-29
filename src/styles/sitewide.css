@@ -396,13 +396,19 @@ button p {
   background-color: #FCDABC;
 }
 
-.profile:nth-child(odd) .saved-galleries {
+.saved-galleries:nth-of-type(1n) {
   background-color: #F69F8B;
+  border: solid #282828 1px;
 }
 
-.profile:nth-child(even) .saved-galleries {
+.saved-galleries:nth-of-type(2n) {
   background-color: #F2F0CC;
   border: solid #282828 1px;
+}
+
+.saved-galleries:nth-of-type(3n) {
+  background-color: #282828;
+  color: #F2F0CC;
 }
 
 .filter-card {
