@@ -1,4 +1,4 @@
-import { Action, ActionTypes, DateFilter } from "./types";
+import { Action, ActionTypes, DateFilter, APIArtwork } from "./types";
 
 export const saveArtwork = (id: string, gallery: string): Action => ({
   type: ActionTypes.SAVE_ARTWORK,
@@ -58,4 +58,14 @@ export const setDateFilter = (date: keyof DateFilter, enabled: boolean) => ({
 export const changeActiveArtwork = (artworkName: string): Action => ({
   type: ActionTypes.CHANGE_ACTIVE_ARTWORK,
   artworkName,
+});
+
+export const fetchArtwork = (searchTerm: string): Action => ({
+  type: ActionTypes.FETCH_ARTWORK,
+  searchTerm,
+});
+
+export const storeArtwork = (artworks: APIArtwork[]): Action => ({
+  type: ActionTypes.STORE_ARTWORK,
+  artworks,
 });

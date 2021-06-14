@@ -1,6 +1,5 @@
 import { ArtworkGalleryLink, Gallery, State } from "../store/types";
 import { connect, ConnectedProps } from "react-redux";
-import DeleteButton from "../shared/dialogs/DeleteDialog";
 import { allArtworks } from "../reference/AllArtworks";
 import { useHistory } from "react-router-dom";
 import { changeActiveGalleryId } from "../store/actions";

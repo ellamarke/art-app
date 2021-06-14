@@ -4,6 +4,7 @@ import { setDateFilter } from "../store/actions";
 import { allArtworks } from "../reference/AllArtworks";
 import { changeActiveArtwork } from "../store/actions";
 import { useHistory } from "react-router-dom";
+import ArtRendererContainer from "../shared/ArtRendererContainer";
 
 const mapStateToProps = (state: State) => ({
   dateFilters: state.dateFilters,
@@ -70,6 +71,9 @@ function Explore({ setDateFilter, dateFilters, changeActiveArtwork }: Props) {
 
   return (
     <div>
+      <h1 className="caps-headline text-centre margin-top">Find art</h1>
+      <button>Find art</button>
+      <ArtRendererContainer />
       <h1 className="caps-headline text-centre margin-top">Filter art</h1>
       <p className="intro-paragraph">
         Discover new artwork from the best artists in the world.

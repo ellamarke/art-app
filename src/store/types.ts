@@ -20,6 +20,7 @@ export interface State {
   activeArtist: string | null;
   activeArtwork: string | null;
   dateFilters: DateFilter;
+  apiArtworks: APIArtwork[];
 }
 
 export interface Gallery {
@@ -39,6 +40,12 @@ export interface DateFilter {
   "2000": boolean;
 }
 
+export type APIArtwork = {
+  imageURL: string;
+  artistName: string;
+  artworkName: string;
+};
+
 export enum ActionTypes {
   SAVE_ARTWORK = "SAVE_ARTWORK",
   REMOVE_ARTWORK = "REMOVE_ARTWORK",
@@ -50,6 +57,8 @@ export enum ActionTypes {
   CHANGE_ACTIVE_ARTIST = "CHANGE_ACTIVE_ARTIST",
   SET_DATE_FILTER = "SET_DATE_FILTER",
   CHANGE_ACTIVE_ARTWORK = "CHANGE_ACTIVE_ARTWORK",
+  FETCH_ARTWORK = "FETCH_ARTWORK",
+  STORE_ARTWORK = "STORE_ARTWORK",
 }
 
 export interface SaveArtworkAction {
@@ -106,6 +115,16 @@ export interface ChangeActiveArtworkAction {
   artworkName: string;
 }
 
+export interface FetchArtworkAction {
+  type: typeof ActionTypes.FETCH_ARTWORK;
+  searchTerm: string;
+}
+
+export interface StoreArtworkAction {
+  type: typeof ActionTypes.STORE_ARTWORK;
+  artworks: APIArtwork[];
+}
+
 export type Action =
   | SaveArtworkAction
   | RemoveArtworkAction
@@ -116,4 +135,6 @@ export type Action =
   | ChangeActiveGalleryIdAction
   | ChangeActiveArtistAction
   | SetDateFilterAction
-  | ChangeActiveArtworkAction;
+  | ChangeActiveArtworkAction
+  | FetchArtworkAction
+  | StoreArtworkAction;

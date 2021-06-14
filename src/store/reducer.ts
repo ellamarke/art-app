@@ -14,6 +14,7 @@ import {
   ChangeActiveArtistAction,
   SetDateFilterAction,
   ChangeActiveArtworkAction,
+  StoreArtworkAction,
 } from "./types";
 
 const initialState: State = {
@@ -32,6 +33,7 @@ const initialState: State = {
     "1990": true,
     "2000": true,
   },
+  apiArtworks: [],
 };
 
 const state = (state = initialState, action: Action) => {
@@ -65,6 +67,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.CHANGE_ACTIVE_ARTWORK:
       return changeActiveArtwork(state, action);
+
+    case ActionTypes.STORE_ARTWORK:
+      return storeArtwork(state, action);
 
     default:
       return state;
@@ -206,6 +211,13 @@ const changeActiveArtwork = (
   return {
     ...state,
     activeArtwork: newActiveArtwork,
+  };
+};
+
+const storeArtwork = (state: State, action: StoreArtworkAction): State => {
+  return {
+    ...state,
+    apiArtworks: action.artworks,
   };
 };
 

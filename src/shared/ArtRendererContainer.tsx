@@ -1,36 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { connect, ConnectedProps } from "react-redux";
 import ArtRenderer from "../shared/ArtRenderer";
+import { APIArtwork, State } from "../store/types";
+import { fetchArtwork } from "../store/actions";
 
-type Artwork = {
-  imageURL: string;
-  artistName: string;
-  artworkName: string;
+const mapStateToProps = (state: State) => ({
+  apiArtworks: state.apiArtworks,
+});
+
+const mapDispatchToProps = {
+  fetchArtwork,
 };
 
-type ArtworkSearchResults = {
-  results: Artwork[];
-  resultCount: number;
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+type Props = PropsFromRedux & {
+  apiArtworks: APIArtwork[];
 };
 
-function ArtRendererContainer() {
-  const [artworks, setArtworks] = useState<ArtworkSearchResults>({
-    results: [],
-    resultCount: 0,
-  });
-
+function ArtRendererContainer({ apiArtworks, fetchArtwork }: Props) {
   useEffect(() => {
-    fetch(`/api/art/search`)
-      .then((res) => res.json())
-      .then((result) => {
-        setArtworks(result);
-        console.log(result);
-      });
-  }, []);
+    fetchArtwork("picasso");
+  }, [fetchArtwork]);
 
   return (
     <div>
       <h2>Rendered Artworks</h2>
-      {artworks.results.map((artwork) => (
+      {apiArtworks.map((artwork) => (
         <ArtRenderer
           src={artwork.imageURL}
           artworkName={artwork.artworkName}
@@ -41,4 +39,4 @@ function ArtRendererContainer() {
   );
 }
 
-export default ArtRendererContainer;
+export default connector(ArtRendererContainer);
