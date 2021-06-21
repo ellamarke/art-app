@@ -1,6 +1,5 @@
 import fetch from "node-fetch";
 const apiKey = process.env.EUROPEANA_API_KEY;
-const searchTerm = "picasso";
 
 type EuropeArtItem = {
   dcCreator: string[];
@@ -29,8 +28,8 @@ type ArtworkSearchResults = {
 };
 
 export const getArt = async (req: any, res: any) => {
-  const id = req.params.searchTerm;
-  console.log("Doing a art search ...");
+  const searchTerm = req.query.searchTerm;
+  console.log("Doing a art search ...", searchTerm);
 
   const apiResponse = await fetch(
     `https://api.europeana.eu/record/v2/search.json?query=${searchTerm}&reusability=open&media=true&wskey=${apiKey}`

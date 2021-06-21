@@ -15,6 +15,7 @@ import {
   SetDateFilterAction,
   ChangeActiveArtworkAction,
   StoreArtworkAction,
+  SetSearchTermAction,
 } from "./types";
 
 const initialState: State = {
@@ -34,6 +35,7 @@ const initialState: State = {
     "2000": true,
   },
   apiArtworks: [],
+  searchTerm: "",
 };
 
 const state = (state = initialState, action: Action) => {
@@ -70,6 +72,9 @@ const state = (state = initialState, action: Action) => {
 
     case ActionTypes.STORE_ARTWORK:
       return storeArtwork(state, action);
+
+    case ActionTypes.SET_SEARCH_TERM:
+      return setSearchTerm(state, action);
 
     default:
       return state;
@@ -222,3 +227,9 @@ const storeArtwork = (state: State, action: StoreArtworkAction): State => {
 };
 
 export default state;
+function setSearchTerm(state: State, action: SetSearchTermAction): State {
+  return {
+    ...state,
+    searchTerm: action.searchTerm,
+  };
+}

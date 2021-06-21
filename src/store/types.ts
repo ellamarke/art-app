@@ -21,6 +21,7 @@ export interface State {
   activeArtwork: string | null;
   dateFilters: DateFilter;
   apiArtworks: APIArtwork[];
+  searchTerm: string;
 }
 
 export interface Gallery {
@@ -59,6 +60,7 @@ export enum ActionTypes {
   CHANGE_ACTIVE_ARTWORK = "CHANGE_ACTIVE_ARTWORK",
   FETCH_ARTWORK = "FETCH_ARTWORK",
   STORE_ARTWORK = "STORE_ARTWORK",
+  SET_SEARCH_TERM = "SET_SEARCH_TERM",
 }
 
 export interface SaveArtworkAction {
@@ -117,12 +119,16 @@ export interface ChangeActiveArtworkAction {
 
 export interface FetchArtworkAction {
   type: typeof ActionTypes.FETCH_ARTWORK;
-  searchTerm: string;
 }
 
 export interface StoreArtworkAction {
   type: typeof ActionTypes.STORE_ARTWORK;
   artworks: APIArtwork[];
+}
+
+export interface SetSearchTermAction {
+  type: typeof ActionTypes.SET_SEARCH_TERM;
+  searchTerm: string;
 }
 
 export type Action =
@@ -137,4 +143,5 @@ export type Action =
   | SetDateFilterAction
   | ChangeActiveArtworkAction
   | FetchArtworkAction
-  | StoreArtworkAction;
+  | StoreArtworkAction
+  | SetSearchTermAction;

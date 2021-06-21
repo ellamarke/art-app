@@ -4,7 +4,6 @@ import { connect, ConnectedProps } from "react-redux";
 import React, { useState } from "react";
 import { allArtworks } from "../reference/AllArtworks";
 import { ArtworkDetails } from "../store/types";
-import DeleteDialog from "../shared/dialogs/DeleteDialog";
 import DeleteButton from "../shared/buttons/DeleteButton";
 
 type Props = PropsFromRedux;

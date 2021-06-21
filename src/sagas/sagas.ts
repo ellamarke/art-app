@@ -1,15 +1,12 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, select, takeLatest } from "redux-saga/effects";
 import { ActionTypes, APIArtwork, FetchArtworkAction } from "../store/types";
 import { storeArtwork } from "../store/actions";
-
-function getArtwork(searchTerm: string): Promise<APIArtwork[]> {
-  return fetch(`/api/art/search`)
-    .then((res) => res.json())
-    .then((data) => data.results);
-}
+import { selectSearchTerm } from "./searchTermSelectors";
+import { getArtwork } from "./artworkAPI";
 
 function* fetchArtwork(action: FetchArtworkAction) {
-  const artworks: APIArtwork[] = yield call(getArtwork, action.searchTerm);
+  const searchTerm: string = yield select(selectSearchTerm);
+  const artworks: APIArtwork[] = yield call(getArtwork, searchTerm); // if you need to use the results, use call
   yield put(storeArtwork(artworks));
 }
 

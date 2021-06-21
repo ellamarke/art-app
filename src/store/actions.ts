@@ -60,12 +60,16 @@ export const changeActiveArtwork = (artworkName: string): Action => ({
   artworkName,
 });
 
-export const fetchArtwork = (searchTerm: string): Action => ({
+export const fetchArtwork = (): Action => ({
   type: ActionTypes.FETCH_ARTWORK,
-  searchTerm,
 });
 
 export const storeArtwork = (artworks: APIArtwork[]): Action => ({
   type: ActionTypes.STORE_ARTWORK,
   artworks,
+});
+
+export const setSearchTerm = (searchTerm: string): Action => ({
+  type: ActionTypes.SET_SEARCH_TERM,
+  searchTerm,
 });
